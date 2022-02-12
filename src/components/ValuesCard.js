@@ -21,7 +21,12 @@ function ValuesCard({ title, text, image }) {
         <img
           src={image}
           alt=""
-          style={{ width: "20%", height: "auto", margin: "20px auto" }}
+          style={{
+            width: "20%", 
+            height: "auto",
+            margin: "20px auto",
+            objectFit: "contain",
+          }}
         />
       </div>
       <Typography
