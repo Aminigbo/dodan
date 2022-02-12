@@ -463,19 +463,18 @@ function Homepage() {
                 display: "flex",
                 alignItems: "center",
                 width: "100%",
-                justifySelf: "center",
-                flexDirection: mobile ? "column" : tablet ? "column" : "row",
+                flexDirection: "column",
                 marginBottom: 50,
               }}
             >
               <div
                 style={{
-                  width: tablet ? "100%" : "25%",
+                  width: "100%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "auto",
-                  marginBottom: mobile ? "30px" : tablet ? "30px" : null,
+                  marginBottom: "30px",
                 }}
               >
                 <img
@@ -491,14 +490,14 @@ function Homepage() {
               </div>
               <div
                 style={{
-                  width: "75%",
+                  width: "100%",
                   height: "auto",
                 }}
               >
                 <Typography
                   variant="body1"
                   color="white"
-                  align={tablet ? "center" : "left"}
+                  align={"center"}
                   style={{ fontWeight: "500", fontSize: "23px" }}
                 >
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -508,7 +507,7 @@ function Homepage() {
                 <Typography
                   variant="body1"
                   color="white"
-                  align={tablet ? "center" : "left"}
+                  align={"center"}
                   style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
                 >
                   Monica .O. Christopher
@@ -520,19 +519,18 @@ function Homepage() {
                 display: "flex",
                 alignItems: "center",
                 width: "100%",
-                justifySelf: "center",
-                flexDirection: tablet ? "column" : "row",
+                flexDirection: "column",
                 marginBottom: 50,
               }}
             >
               <div
                 style={{
-                  width: "25%",
+                  width: "100%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "auto",
-                  marginBottom: tablet ? "30px" : null,
+                  marginBottom: "30px",
                 }}
               >
                 <img
@@ -548,14 +546,14 @@ function Homepage() {
               </div>
               <div
                 style={{
-                  width: "75%",
+                  width: "100%",
                   height: "auto",
                 }}
               >
                 <Typography
                   variant="body1"
                   color="white"
-                  align={tablet ? "center" : "left"}
+                  align={"center"}
                   style={{ fontWeight: "500", fontSize: "23px" }}
                 >
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -565,7 +563,7 @@ function Homepage() {
                 <Typography
                   variant="body1"
                   color="white"
-                  align={tablet ? "center" : "left"}
+                  align={"center"}
                   style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
                 >
                   Monica .O. Christopher
@@ -577,19 +575,18 @@ function Homepage() {
                 display: "flex",
                 alignItems: "center",
                 width: "100%",
-                justifySelf: "center",
-                flexDirection: tablet ? "column" : "row",
+                flexDirection: "column",
                 marginBottom: 50,
               }}
             >
               <div
                 style={{
-                  width: "25%",
+                  width: "100%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "auto",
-                  marginBottom: tablet ? "30px" : null,
+                  marginBottom: "30px",
                 }}
               >
                 <img
@@ -605,14 +602,14 @@ function Homepage() {
               </div>
               <div
                 style={{
-                  width: "75%",
+                  width: "100%",
                   height: "auto",
                 }}
               >
                 <Typography
                   variant="body1"
                   color="white"
-                  align={tablet ? "center" : "left"}
+                  align={"center"}
                   style={{ fontWeight: "500", fontSize: "23px" }}
                 >
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -622,7 +619,7 @@ function Homepage() {
                 <Typography
                   variant="body1"
                   color="white"
-                  align={tablet ? "center" : "left"}
+                  align={"center"}
                   style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
                 >
                   Monica .O. Christopher
