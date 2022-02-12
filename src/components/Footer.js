@@ -183,7 +183,7 @@ function Footer() {
             >
               Stay Tuned For Updates
             </Typography>
-            <div style={{ marginBottom: 15, width: "100%", backgroundColor:"red" }}>
+            <div style={{ marginBottom: 15, width: "100%" }}>
               <input
                 type="email"
                 style={{

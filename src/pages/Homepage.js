@@ -464,7 +464,7 @@ function Homepage() {
                 alignItems: "center",
                 width: "100%",
                 justifySelf: "center",
-                flexDirection: tablet ? "column" : "row",
+                flexDirection: mobile ? "column" : tablet ? "column" : "row",
                 marginBottom: 50,
               }}
             >
@@ -475,7 +475,7 @@ function Homepage() {
                   justifyContent: "center",
                   alignItems: "center",
                   height: "auto",
-                  marginBottom: tablet ? "30px" : null,
+                  marginBottom: mobile ? "30px" : tablet ? "30px" : null,
                 }}
               >
                 <img
