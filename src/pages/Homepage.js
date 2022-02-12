@@ -11,7 +11,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import NomineeCard from "../components/NomineeCard";
 import AwardeesCard from "../components/AwardeesCard";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
 
 function Homepage() {
@@ -470,7 +470,7 @@ function Homepage() {
             >
               <div
                 style={{
-                  width: "25%",
+                  width: tablet ? "100%" : "25%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
