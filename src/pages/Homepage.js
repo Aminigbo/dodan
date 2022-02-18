@@ -9,12 +9,14 @@ import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import NomineeCard from "../components/NomineeCard";
+// import NomineeCard from "../components/NomineeCard";
 import AwardeesCard from "../components/AwardeesCard";
 import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
+import { useCategory } from "../context/CategoryContext";
 
 function Homepage() {
+  const { categoryState, setVoteModalDisplay } = useCategory();
   const tablet = useMediaQuery("(max-width: 900px)");
   const mobile = useMediaQuery("(max-width: 600px)");
   return (
@@ -34,33 +36,120 @@ function Homepage() {
         }}
       >
         <div style={{ width: tablet ? "70%" : mobile ? "100%" : "40%" }}>
-          <Typography
-            variant="h4"
-            align="center"
-            style={{
-              color: "#fff",
-              fontWeight: 600,
-              fontSize: mobile ? "40px" : "65px",
-              lineHeight: mobile ? "57px" : "78px",
-              paddingBottom: "30px",
+          <OwlCarousel
+            className="owl-theme"
+            loop
+            dots={false}
+            margin={30}
+            nav={false}
+            autoplay={true}
+            autoplayTimeout={3000}
+            autoplayHoverPause={false}
+            autoplaySpeed={2000}
+            center={true}
+            responsive={{
+              0: {
+                items: 1,
+              },
+              600: {
+                items: 1,
+              },
+              900: {
+                items: 1,
+              },
             }}
           >
-            Help Us Make A Difference In This Country.
-          </Typography>
-          <div
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <ContainedButton
-              text={"Vote"}
-              textStyle={{ color: "#fff" }}
-              styles={{ backgroundColor: "#188A4C" }}
-            />
-          </div>
+            <div style={{ width: "100%", height: "auto" }}>
+              <Typography
+                variant="h4"
+                align="center"
+                style={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  fontSize: mobile ? "40px" : "65px",
+                  lineHeight: mobile ? "57px" : "78px",
+                  paddingBottom: "30px",
+                }}
+              >
+                Help Us Make A Difference In This Country.
+              </Typography>
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <ContainedButton
+                  text={"Vote"}
+                  textStyle={{ color: "#fff" }}
+                  styles={{ backgroundColor: "#188A4C" }}
+                  onClick={() => setVoteModalDisplay(true)}
+                />
+              </div>
+            </div>
+            <div style={{ width: "100%", height: "auto" }}>
+              <Typography
+                variant="h4"
+                align="center"
+                style={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  fontSize: mobile ? "40px" : "65px",
+                  lineHeight: mobile ? "57px" : "78px",
+                  paddingBottom: "30px",
+                }}
+              >
+                Help us reward good leaders.
+              </Typography>
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <ContainedButton
+                  text={"Vote"}
+                  textStyle={{ color: "#fff" }}
+                  styles={{ backgroundColor: "#188A4C" }}
+                  onClick={() => setVoteModalDisplay(true)}
+                />
+              </div>
+            </div>
+            <div style={{ width: "100%", height: "auto" }}>
+              <Typography
+                variant="h4"
+                align="center"
+                style={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  fontSize: mobile ? "40px" : "65px",
+                  lineHeight: mobile ? "57px" : "78px",
+                  paddingBottom: "30px",
+                }}
+              >
+                Come let’s bridge the gap.
+              </Typography>
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <ContainedButton
+                  text={"Vote"}
+                  textStyle={{ color: "#fff" }}
+                  styles={{ backgroundColor: "#188A4C" }}
+                  onClick={() => setVoteModalDisplay(true)}
+                />
+              </div>
+            </div>
+          </OwlCarousel>
         </div>
       </div>
       <div
@@ -71,7 +160,7 @@ function Homepage() {
             <Grid item md={3} sm={6} xs={12}>
               <ValuesCard
                 image={images.mission}
-                title="OUR MISSION"
+                title="REWARD"
                 text={
                   "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
                 }
@@ -80,7 +169,7 @@ function Homepage() {
             <Grid item md={3} sm={6} xs={12}>
               <ValuesCard
                 image={images.volunteer}
-                title="JOIN VOLUNTEER"
+                title="ACCOUNTABILITY"
                 text={
                   "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
                 }
@@ -89,7 +178,7 @@ function Homepage() {
             <Grid item md={3} sm={6} xs={12}>
               <ValuesCard
                 image={images.company}
-                title="OUR COMPANIES"
+                title="SCREEN CARD"
                 text={
                   "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
                 }
@@ -98,7 +187,7 @@ function Homepage() {
             <Grid item md={3} sm={6} xs={12}>
               <ValuesCard
                 image={images.project}
-                title="OUR PROJECT"
+                title="LEGACY"
                 text={
                   "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
                 }
@@ -146,16 +235,19 @@ function Homepage() {
                   paddingTop: 30,
                 }}
               >
-                The True Leader For The Better Country
+                Dividense Of Democracy Award, Nigeria (DODAN)
               </Typography>
               <Typography variant="body1" style={{ paddingBottom: "20px" }}>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. um sociis natoque penatibus et magnis dis parturient
-                montes, nascetur ridiculus mus.ascetur ridiculus mus. um sociis
-                natoque penatibus et magnis dis parturient montes, nascetur
-                ridiculus mus.
+                Award is put together to appreciate, celebrate honor and
+                encourage the few good Politicians who had demonstrated honesty,
+                hard work, love and care for the citizens according to their
+                oath of office and respect for the Constitution.
+                <br />
+                <br />
+                Renowned/experienced journalists and Activists, chosen market
+                women and some students from across Nigeria will make up a team
+                of people to verify, confirm claims of projects, programs etc of
+                the highest voted for Politicians for the award.
               </Typography>
               <ContainedButton
                 text={"Learn More"}
@@ -166,7 +258,7 @@ function Homepage() {
           </Grid>
         </Container>
       </div>
-      <div style={{ width: "100%", padding: "60px 0" }}>
+      {/* <div style={{ width: "100%", padding: "60px 0" }}>
         <Container>
           <Typography
             variant="h4"
@@ -244,7 +336,7 @@ function Homepage() {
             />
           </OwlCarousel>
         </Container>
-      </div>
+      </div> */}
       <div
         style={{ backgroundColor: "#F0F7F3", width: "100%", padding: "50px 0" }}
       >
@@ -286,14 +378,12 @@ function Homepage() {
                   paddingTop: 30,
                 }}
               >
-                You Vote for Progress We Make History.
+                You Vote for Progress. We Make History.
               </Typography>
               <Typography variant="body1" style={{ paddingBottom: "10px" }}>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. um sociis natoque penatibus et magnis dis parturient
-                montes,
+                You vote for service, we reward for development. You have the
+                power to decide those who truly deserve these important awards.
+                The power is in your hands.
               </Typography>
               <div
                 style={{
@@ -308,9 +398,23 @@ function Homepage() {
                   alt=""
                   style={{ width: "20px", marginRight: 10 }}
                 />
+                <Typography variant="body1">Select any category</Typography>
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  paddingBottom: 5,
+                }}
+              >
+                <img
+                  src={images.voteMark}
+                  alt=""
+                  style={{ width: "20px", marginRight: 10 }}
+                />
                 <Typography variant="body1">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor.
+                  Locate your favorite awardee in that category
                 </Typography>
               </div>
               <div
@@ -327,8 +431,7 @@ function Homepage() {
                   style={{ width: "20px", marginRight: 10 }}
                 />
                 <Typography variant="body1">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor.
+                  Vote as many times as possible
                 </Typography>
               </div>
               <div
@@ -345,8 +448,7 @@ function Homepage() {
                   style={{ width: "20px", marginRight: 10 }}
                 />
                 <Typography variant="body1">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor.
+                  You can vote in various categories
                 </Typography>
               </div>
               <div
@@ -363,8 +465,7 @@ function Homepage() {
                   style={{ width: "20px", marginRight: 10 }}
                 />
                 <Typography variant="body1">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor.
+                  You can vote for only one award in each category.
                 </Typography>
               </div>
             </Grid>
@@ -379,46 +480,27 @@ function Homepage() {
             fontWeight={600}
             style={{ paddingBottom: 20 }}
           >
-            Meet Our Awardees
+            Award Category
           </Typography>
           <Typography
             variant="body1"
             align="center"
             style={{ paddingBottom: 50 }}
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes,
+            Select any category and vote for your favorite awardee. Your votes
+            will encourage accountabilty.
           </Typography>
           <Grid container spacing={5}>
-            <Grid item md={3} sm={6} xs={12}>
-              <AwardeesCard
-                image={images.landingPage}
-                name="Christopher Day"
-                post="Local Govt Chairman"
-              />
-            </Grid>
-            <Grid item md={3} sm={6} xs={12}>
-              <AwardeesCard
-                image={images.landingPage}
-                name="Christopher Day"
-                post="Local Govt Chairman"
-              />
-            </Grid>
-            <Grid item md={3} sm={6} xs={12}>
-              <AwardeesCard
-                image={images.landingPage}
-                name="Christopher Day"
-                post="Local Govt Chairman"
-              />
-            </Grid>
-            <Grid item md={3} sm={6} xs={12}>
-              <AwardeesCard
-                image={images.landingPage}
-                name="Christopher Day"
-                post="Local Govt Chairman"
-              />
-            </Grid>
+            {categoryState.map((category) => (
+              <Grid key={category.id} item md={3} sm={6} xs={12}>
+                <AwardeesCard
+                  image={category.picture}
+                  name={category.title}
+                  post="Local Govt Chairman"
+                  id={category.id}
+                />
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </div>
@@ -478,7 +560,7 @@ function Homepage() {
                 }}
               >
                 <img
-                  src={images.landingPage}
+                  src={images.woodrow}
                   alt=""
                   style={{
                     width: "110px",
@@ -500,9 +582,7 @@ function Homepage() {
                   align={"center"}
                   style={{ fontWeight: "500", fontSize: "23px" }}
                 >
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur.
+                  The world must be made safe for Democracy.
                 </Typography>
                 <Typography
                   variant="body1"
@@ -510,7 +590,7 @@ function Homepage() {
                   align={"center"}
                   style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
                 >
-                  Monica .O. Christopher
+                  Woodrow Wilson
                 </Typography>
               </div>
             </div>
@@ -534,7 +614,7 @@ function Homepage() {
                 }}
               >
                 <img
-                  src={images.landingPage}
+                  src={images.kennedy}
                   alt=""
                   style={{
                     width: "110px",
@@ -556,9 +636,8 @@ function Homepage() {
                   align={"center"}
                   style={{ fontWeight: "500", fontSize: "23px" }}
                 >
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur.
+                  Ask not what your country can do for you, ask what you can do
+                  for your country.
                 </Typography>
                 <Typography
                   variant="body1"
@@ -566,7 +645,7 @@ function Homepage() {
                   align={"center"}
                   style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
                 >
-                  Monica .O. Christopher
+                  John F.Kennedy
                 </Typography>
               </div>
             </div>
@@ -590,7 +669,7 @@ function Homepage() {
                 }}
               >
                 <img
-                  src={images.landingPage}
+                  src={images.rufus}
                   alt=""
                   style={{
                     width: "110px",
@@ -612,9 +691,9 @@ function Homepage() {
                   align={"center"}
                   style={{ fontWeight: "500", fontSize: "23px" }}
                 >
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur.
+                  Love is all we need in Nigeria,let us not just preach it in
+                  churches on Sundays and in the mosques on Fridays but practice
+                  it daily...
                 </Typography>
                 <Typography
                   variant="body1"
@@ -622,7 +701,118 @@ function Homepage() {
                   align={"center"}
                   style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
                 >
-                  Monica .O. Christopher
+                  Rufus Oba
+                </Typography>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                flexDirection: "column",
+                marginBottom: 50,
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "auto",
+                  marginBottom: "30px",
+                }}
+              >
+                <img
+                  src={images.pierre}
+                  alt=""
+                  style={{
+                    width: "110px",
+                    height: "110px",
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  color="white"
+                  align={"center"}
+                  style={{ fontWeight: "500", fontSize: "23px" }}
+                >
+                  Freedom and personal security are safeguarded by laws,those
+                  laws must be respected...
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="white"
+                  align={"center"}
+                  style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
+                >
+                  Pierre Trudeau
+                </Typography>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                flexDirection: "column",
+                marginBottom: 50,
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "auto",
+                  marginBottom: "30px",
+                }}
+              >
+                <img
+                  src={images.indira}
+                  alt=""
+                  style={{
+                    width: "110px",
+                    height: "110px",
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  color="white"
+                  align={"center"}
+                  style={{ fontWeight: "500", fontSize: "23px" }}
+                >
+                  There is no job that is too small,there is no person who is
+                  too small.everybody has something to do,And if he or she does
+                  it well,then the country will run well…
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="white"
+                  align={"center"}
+                  style={{ fontWeight: "400", fontSize: "20px", marginTop: 30 }}
+                >
+                  Indira Ghandi
                 </Typography>
               </div>
             </div>
@@ -731,13 +921,47 @@ function Homepage() {
           </Typography>
           <Grid container spacing={7}>
             <Grid item md={4} sm={6} xs={12}>
-              <BlogCard image={images.landingPage} />
+              <BlogCard
+                image={images.rufus}
+                title="Dividends of democracy awards holds in Abuja - The Nation Newspaper"
+                link=" https://thenationonlineng.net/dividends-of-democracy-awards-holds-in-abuja/"
+              />
             </Grid>
             <Grid item md={4} sm={6} xs={12}>
-              <BlogCard image={images.landingPage} />
+              <BlogCard
+                image={images.news2}
+                title="Dividends of Democracy Awards to hold in Abuja - Vanguard News"
+                link="https://www.vanguardngr.com/2022/01/dividends-of-democracy-awards-to-hold-in-abuja/"
+              />
             </Grid>
             <Grid item md={4} sm={6} xs={12}>
-              <BlogCard image={images.landingPage} />
+              <BlogCard
+                image={images.news2}
+                title="Dividends of Democracy Awards Debuts in Abuja"
+                link="https://www.naijalivetv.com/dividends-of-democracy-awards-debuts-in-abuja/"
+              />
+            </Grid>
+
+            <Grid item md={4} sm={6} xs={12}>
+              <BlogCard
+                image={images.news2}
+                title="Dividends Of Democracy Awards debuts"
+                link="https://guardian.ng/news/dividends-of-democracy-awards-debuts/"
+              />
+            </Grid>
+            <Grid item md={4} sm={6} xs={12}>
+              <BlogCard
+                image={images.news2}
+                title="Dividends of democracy award holds in Abuja June 15"
+                link="https://www.sunnewsonline.com/dividends-of-democracy-award-holds-in-abuja-june-15/"
+              />
+            </Grid>
+            <Grid item md={4} sm={6} xs={12}>
+              <BlogCard
+                image={images.rufus}
+                title="Group urges Nigerians to vote against anti people politicians, policies."
+                link="https://thelaurel.com.ng/group-urges-nigerians-to-vote-against-anti-people-politicians-policies/"
+              />
             </Grid>
           </Grid>
         </Container>

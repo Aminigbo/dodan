@@ -1,5 +1,5 @@
 const images = {
-  landingPage: require("./landingimg.png"),
+  landingPage: require("./landingpicture.jpg"),
   mission: require("./mission.png"),
   company: require("./company.png"),
   volunteer: require("./volunteer.png"),
@@ -12,6 +12,17 @@ const images = {
   test2: require("./test2.png"),
   test3: require("./test3.png"),
   test4: require("./test4.png"),
+  democracy: require("./democracy.jpg"),
+  service: require("./service.jpg"),
+  reward: require("./reward.jpg"),
+  recognition: require("./recognition.jpg"),
+  legacy: require("./legacy.jpg"),
+  indira: require("./indira.jpg"),
+  kennedy: require("./kennedy.jpg"),
+  pierre: require("./pierre.jpg"),
+  rufus: require("./rufus.jpg"),
+  woodrow: require("./woodrow.jpg"),
+  news2: require("./news2.jpeg"),
 };
 
 export default images;

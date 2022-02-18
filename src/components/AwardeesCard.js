@@ -2,8 +2,9 @@ import React from "react";
 import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ContainedButton from "./ContainedButton";
+import { Link } from "react-router-dom";
 
-function AwardeesCard({image, name, post}) {
+function AwardeesCard({ image, name, post, id }) {
   const useStyles = makeStyles({
     container: {
       width: "100%",
@@ -68,11 +69,13 @@ function AwardeesCard({image, name, post}) {
         {post}
       </Typography>
       <div>
-        <ContainedButton
-          text={"Vote"}
-          textStyle={{ color: "#fff" }}
-          styles={{ backgroundColor: "#188A4C" }}
-        />
+        <Link to={`/category/${id}`}>
+          <ContainedButton
+            text={"Enter"}
+            textStyle={{ color: "#fff" }}
+            styles={{ backgroundColor: "#188A4C" }}
+          />
+        </Link>
       </div>
     </div>
   );

@@ -42,15 +42,15 @@ function Footer() {
                 color: "#fff",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              um sociis natoque penatibus et magnis dis parturient montes,
+              Award is put together to appreciate, celebrate honor and encourage
+              the few good Politicians who had demonstrated honesty, hard work,
+              love and care for the citizens according to their oath of office
+              and respect for the Constitution.
             </Typography>
           </Grid>
           <Grid
             item
-            md={2}
+            md={4}
             sm={6}
             xs={6}
             style={{
@@ -106,58 +106,6 @@ function Footer() {
                 }}
               >
                 Contact Us
-              </Typography>
-            </div>
-          </Grid>
-          <Grid
-            item
-            md={2}
-            sm={6}
-            xs={6}
-            style={{
-              display: "flex",
-              justifyContent: tablet ? "flex-start" : "center",
-            }}
-          >
-            <div>
-              <Typography
-                variant="h5"
-                style={{
-                  fontWeight: 600,
-                  fontSize: "23px",
-                  color: "#fff",
-                  paddingBottom: 15,
-                }}
-                align="left"
-              >
-                Features
-              </Typography>
-              <Typography
-                variant="body1"
-                style={{
-                  color: "#fff",
-                  marginBottom: 15,
-                }}
-              >
-                Members
-              </Typography>
-              <Typography
-                variant="body1"
-                style={{
-                  color: "#fff",
-                  marginBottom: 15,
-                }}
-              >
-                Teams
-              </Typography>
-              <Typography
-                variant="body1"
-                style={{
-                  color: "#fff",
-                  marginBottom: 15,
-                }}
-              >
-                ShortCodes
               </Typography>
               <Typography
                 variant="body1"

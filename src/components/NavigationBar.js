@@ -11,9 +11,9 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
-import ContainedButton from "./ContainedButton";
+// import ContainedButton from "./ContainedButton";
 import { Menu } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function NavigationBar() {
   const tablet = useMediaQuery("(max-width: 900px)");
@@ -50,7 +50,9 @@ function NavigationBar() {
                   fontWeight: 700,
                   fontSize: "28px",
                   lineHeight: "36.48px",
+                  cursor: "pointer",
                 }}
+                onClick={() => navigate("/")}
               >
                 Dodan.<span style={{ color: "#188A4C" }}>NG</span>
               </Typography>
@@ -69,23 +71,43 @@ function NavigationBar() {
                   listStyle: "none",
                   display: tablet ? "none" : "flex",
                   justifyContent: "space-between",
-                  width: "100%",
+                  width: "70%",
                   alignItems: "center",
                 }}
               >
                 <li>
-                  <Typography variant="body1">Home</Typography>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "#000000" }}
+                  >
+                    <Typography variant="body1">Home</Typography>
+                  </Link>
                 </li>
                 <li>
-                  <Typography variant="body1">About Us</Typography>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "#000000" }}
+                  >
+                    <Typography variant="body1">About Us</Typography>
+                  </Link>
                 </li>
                 <li>
-                  <Typography variant="body1">Awards</Typography>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "#000000" }}
+                  >
+                    <Typography variant="body1">Awards</Typography>
+                  </Link>
                 </li>
                 <li>
-                  <Typography variant="body1">Contact Us</Typography>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "#000000" }}
+                  >
+                    <Typography variant="body1">Contact Us</Typography>
+                  </Link>
                 </li>
-                <li>
+                {/* <li>
                   <ContainedButton
                     text="Login"
                     styles={{
@@ -101,7 +123,7 @@ function NavigationBar() {
                     styles={{ backgroundColor: "#188A4C" }}
                     textStyle={{ color: "#fff" }}
                   />
-                </li>
+                </li> */}
               </ul>
               <IconButton
                 onClick={() => setOpen(true)}
@@ -185,7 +207,7 @@ function NavigationBar() {
                 >
                   <ListItemText primary={"Contact US"} />
                 </ListItem>
-                <ListItem
+                {/* <ListItem
                   button
                   onClick={() => {
                     setOpen(false);
@@ -202,7 +224,7 @@ function NavigationBar() {
                   style={{ color: "#188c42" }}
                 >
                   <ListItemText primary={"Sign Up"} />
-                </ListItem>
+                </ListItem> */}
               </List>
             </div>
           </SwipeableDrawer>

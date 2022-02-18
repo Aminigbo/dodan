@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
-function BlogCard({ image }) {
+function BlogCard({ image, title, link }) {
   const useStyles = makeStyles({
     container: {
       width: "100%",
@@ -55,28 +55,17 @@ function BlogCard({ image }) {
       />
       <Typography
         variant="body2"
-        style={{ fontSize: 16, fontWeight: 300, padding: "5px 0 10px 0" }}
-      >
-        April 15 2020 / Financing Activities, Social Issues
-      </Typography>
-      <Typography
-        variant="body2"
         style={{ fontSize: 28, fontWeight: 600, padding: "10px 0 10px 0" }}
       >
-        Should We Rethink Our Patriotism? New Sociological Studies
+        {title}
       </Typography>
-      <Typography
-        variant="body2"
-        style={{ fontSize: 18, fontWeight: 300, padding: "10px 0 10px 0" }}
-      >
-        More and more Nigerians claim that they are true patriots of their
-        country.
-      </Typography>
-      <button>
-        <Typography variant="body1">
-          Read More <ArrowRightAltIcon style={{ marginLeft: "6px" }} />
-        </Typography>
-      </button>
+      <a href={link} target="__blank">
+        <button>
+          <Typography variant="body1">
+            Read More <ArrowRightAltIcon style={{ marginLeft: "6px" }} />
+          </Typography>
+        </button>
+      </a>
     </div>
   );
 }
