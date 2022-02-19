@@ -1,5 +1,5 @@
 const images = {
-  landingPage: require("./landingpicture.jpg"),
+  landingPage: require("./nigeria-flag.jpg"),
   mission: require("./mission.png"),
   company: require("./company.png"),
   volunteer: require("./volunteer.png"),

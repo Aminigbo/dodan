@@ -65,7 +65,7 @@ function VoteModal() {
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorPhone, setErrorPhone] = useState(null);
 
-  const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const validateEmail = (email) => {
@@ -127,7 +127,13 @@ function VoteModal() {
           id="customized-dialog-title"
           onClose={() => setVoteModalDisplay(false)}
         >
-          {added ? "Coming Soon" : "Fill in your details"}
+          <Typography
+            variant="h4"
+            align="center"
+            style={{ color: added ? "#188a4c" : "#000000" }}
+          >
+            {added ? "Welcome!" : "Fill in your details"}
+          </Typography>
         </BootstrapDialogTitle>
         <DialogContent dividers>
           {!added ? (
@@ -166,7 +172,15 @@ function VoteModal() {
               </div>
             </>
           ) : (
-            <h1>hello</h1>
+            <>
+              <Typography align="center" variant="h6" gutterBottom>
+                Voting starts: March 1st, 2022
+              </Typography>
+              <Typography variant="body1" align="center">
+                You will be the first to know when the portal opens.{" "}
+                <span style={{ color: "#188a4c" }}>Cheers.</span>
+              </Typography>
+            </>
           )}
         </DialogContent>
         <DialogActions>

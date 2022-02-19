@@ -196,7 +196,7 @@ function Homepage() {
           </Grid>
         </Container>
       </div>
-      <div style={{ width: "100%", padding: "50px 0" }}>
+      <div id="about" style={{ width: "100%", padding: "50px 0" }}>
         <Container>
           <Grid
             container
@@ -378,12 +378,11 @@ function Homepage() {
                   paddingTop: 30,
                 }}
               >
-                You Vote for Progress. We Make History.
+                You Vote For Service. We Reward For Development.
               </Typography>
               <Typography variant="body1" style={{ paddingBottom: "10px" }}>
-                You vote for service, we reward for development. You have the
-                power to decide those who truly deserve these important awards.
-                The power is in your hands.
+                You have the power to decide those who truly deserve these
+                important awards. The power is in your hands.
               </Typography>
               <div
                 style={{
@@ -472,7 +471,7 @@ function Homepage() {
           </Grid>
         </Container>
       </div>
-      <div style={{ width: "100%", padding: "50px 0" }}>
+      <div id="award" style={{ width: "100%", padding: "50px 0" }}>
         <Container>
           <Typography
             variant="h4"
@@ -825,18 +824,9 @@ function Homepage() {
             variant="h4"
             align="center"
             fontWeight={600}
-            style={{ paddingBottom: 20 }}
-          >
-            Our Sponsors
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
             style={{ paddingBottom: 50 }}
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes,
+            Our Partners
           </Typography>
         </Container>
         <div
@@ -915,9 +905,7 @@ function Homepage() {
             align="center"
             style={{ paddingBottom: 50 }}
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes,
+            Check out what the media is saying about us.
           </Typography>
           <Grid container spacing={7}>
             <Grid item md={4} sm={6} xs={12}>
@@ -941,7 +929,6 @@ function Homepage() {
                 link="https://www.naijalivetv.com/dividends-of-democracy-awards-debuts-in-abuja/"
               />
             </Grid>
-
             <Grid item md={4} sm={6} xs={12}>
               <BlogCard
                 image={images.news2}
