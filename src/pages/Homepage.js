@@ -16,7 +16,8 @@ import BlogCard from "../components/BlogCard";
 import { useCategory } from "../context/CategoryContext";
 
 function Homepage() {
-  const { categoryState, setVoteModalDisplay } = useCategory();
+  const { categoryState, setVoteModalDisplay, sponsorsState } = useCategory();
+
   const tablet = useMediaQuery("(max-width: 900px)");
   const mobile = useMediaQuery("(max-width: 600px)");
   return (
@@ -66,7 +67,7 @@ function Homepage() {
                 style={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: mobile ? "40px" : "65px",
+                  fontSize: mobile ? 40 : 65,
                   lineHeight: mobile ? "57px" : "78px",
                   paddingBottom: "30px",
                 }}
@@ -96,7 +97,7 @@ function Homepage() {
                 style={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: mobile ? "40px" : "65px",
+                  fontSize: mobile ? 40 : 65,
                   lineHeight: mobile ? "57px" : "78px",
                   paddingBottom: "30px",
                 }}
@@ -126,7 +127,7 @@ function Homepage() {
                 style={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: mobile ? "40px" : "65px",
+                  fontSize: mobile ? 40 : 65,
                   lineHeight: mobile ? "57px" : "78px",
                   paddingBottom: "30px",
                 }}
@@ -495,7 +496,6 @@ function Homepage() {
                 <AwardeesCard
                   image={category.picture}
                   name={category.title}
-                  post="Local Govt Chairman"
                   id={category.id}
                 />
               </Grid>
@@ -889,6 +889,40 @@ function Homepage() {
             </OwlCarousel>
           </Container>
         </div>
+      </div>
+      <div id="sponsors" style={{ width: "100%", padding: "50px 0" }}>
+        <Container>
+          <Typography
+            variant="h4"
+            align="center"
+            fontWeight={600}
+            style={{ paddingBottom: 20 }}
+          >
+            Sponsors Category
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            style={{ paddingBottom: 50 }}
+          >
+            This is an offer to serve or give to provide Dividends of Democracy
+            to the less privileged in our society. Write your name in gold,touch
+            a life today by your giving ,make your money speak for you and
+            change lives for a beautiful,better ,safe society.
+          </Typography>
+          <Grid container spacing={5}>
+            {sponsorsState.map((sponsors) => (
+              <Grid key={sponsors.id} item md={3} sm={6} xs={12}>
+                <AwardeesCard
+                  image={sponsors.picture}
+                  name={sponsors.title}
+                  id={sponsors.id}
+                  link={`sponsor/${sponsors.id}`}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </div>
       <div style={{ width: "100%", height: "auto", padding: "50px 0" }}>
         <Container>

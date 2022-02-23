@@ -8,24 +8,22 @@ import { useCategory } from "../context/CategoryContext";
 import ContainedButton from "../components/ContainedButton";
 import AwardeesCard from "../components/AwardeesCard";
 
-function Category() {
+function Sponsors() {
   const { id } = useParams();
-  const { categoryState } = useCategory();
-
-  const { setVoteModalDisplay } = useCategory();
+  const { sponsorsState, setSponsorsModalDisplay } = useCategory();
 
   return (
     <>
       <NavigationBar />
-      {categoryState
-        .filter((category) => category.id === parseInt(id))
-        .map((category) => (
-          <div key={category.id} style={{ width: "100%", padding: "50px 0" }}>
+      {sponsorsState
+        .filter((sponsors) => sponsors.id === parseInt(id))
+        .map((sponsors) => (
+          <div key={sponsors.id} style={{ width: "100%", padding: "50px 0" }}>
             <Container>
               <Grid container spacing={6}>
                 <Grid item md={6} xs={12}>
                   <img
-                    src={category.picture}
+                    src={sponsors.picture}
                     alt=""
                     style={{
                       width: "100%",
@@ -38,7 +36,7 @@ function Category() {
                 <Grid item md={6} xs={12}>
                   <div
                     style={{
-                      width: "150px",
+                      width: "170px",
                       padding: "7px 15px",
                       backgroundColor: "#f0f0f0",
                       display: "flex",
@@ -49,7 +47,7 @@ function Category() {
                       style={{ marginRight: 10, color: "#E33C1C" }}
                     />
                     <Typography variant="body1" style={{ color: "#188A4C" }}>
-                      Award Category
+                      Sponsors Category
                     </Typography>
                   </div>
                   <Typography
@@ -61,16 +59,16 @@ function Category() {
                       paddingTop: 30,
                     }}
                   >
-                    {category.title}
+                    {sponsors.title}
                   </Typography>
                   <Typography variant="body1" style={{ paddingBottom: "20px" }}>
-                    {category.description}
+                    {sponsors.description}
                   </Typography>
                   <ContainedButton
-                    text={"Enter to Vote"}
+                    text={"Become a sponsor"}
                     textStyle={{ color: "#fff" }}
                     styles={{ backgroundColor: "#188A4C" }}
-                    onClick={() => setVoteModalDisplay(true)}
+                    onClick={() => setSponsorsModalDisplay(true)}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
@@ -82,18 +80,19 @@ function Category() {
                         align="center"
                         style={{ paddingTop: "50px" }}
                       >
-                        Other Award Categories
+                        Other Sponsors Categories
                       </Typography>
                     </Grid>
-                    {categoryState
-                      .filter((category) => category.id !== parseInt(id))
-                      .map((category) => (
+                    {sponsorsState
+                      .filter((sponsors) => sponsors.id !== parseInt(id))
+                      .map((sponsors) => (
                         <Grid item md={3} sm={6} xs={12}>
                           <AwardeesCard
-                            key={category.id}
-                            image={category.picture}
-                            name={category.title}
-                            id={category.id}
+                            key={sponsors.id}
+                            image={sponsors.picture}
+                            name={sponsors.title}
+                            id={sponsors.id}
+                            link={`/sponsor/${sponsors.id}`}
                           />
                         </Grid>
                       ))}
@@ -108,4 +107,4 @@ function Category() {
   );
 }
 
-export default Category;
+export default Sponsors;

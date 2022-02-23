@@ -7,9 +7,12 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ContainedButton from "./ContainedButton";
+import { HashLink } from "react-router-hash-link";
+import { useCategory } from "../context/CategoryContext";
 
 function Footer() {
   const tablet = useMediaQuery("(max-width: 900px)");
+  const { setVoteModalDisplay } = useCategory();
 
   return (
     <div
@@ -71,30 +74,36 @@ function Footer() {
               >
                 Quick Links
               </Typography>
+              <HashLink to="/" style={{ textDecoration: "none" }}>
+                <Typography
+                  variant="body1"
+                  style={{
+                    color: "#fff",
+                    marginBottom: 15,
+                  }}
+                >
+                  Home
+                </Typography>
+              </HashLink>
+              <HashLink to="/#about" style={{ textDecoration: "none" }}>
+                <Typography
+                  variant="body1"
+                  style={{
+                    color: "#fff",
+                    marginBottom: 15,
+                  }}
+                >
+                  About Us
+                </Typography>
+              </HashLink>
               <Typography
                 variant="body1"
                 style={{
                   color: "#fff",
                   marginBottom: 15,
+                  cursor: "pointer",
                 }}
-              >
-                Home
-              </Typography>
-              <Typography
-                variant="body1"
-                style={{
-                  color: "#fff",
-                  marginBottom: 15,
-                }}
-              >
-                About Us
-              </Typography>
-              <Typography
-                variant="body1"
-                style={{
-                  color: "#fff",
-                  marginBottom: 15,
-                }}
+                onClick={() => setVoteModalDisplay(true)}
               >
                 Vote
               </Typography>
@@ -107,15 +116,17 @@ function Footer() {
               >
                 Contact Us
               </Typography>
-              <Typography
-                variant="body1"
-                style={{
-                  color: "#fff",
-                  marginBottom: 15,
-                }}
-              >
-                Policy
-              </Typography>
+              <HashLink to="/#sponsors" style={{ textDecoration: "none" }}>
+                <Typography
+                  variant="body1"
+                  style={{
+                    color: "#fff",
+                    marginBottom: 15,
+                  }}
+                >
+                  Become a Sponsor
+                </Typography>
+              </HashLink>
             </div>
           </Grid>
           <Grid item md={3} sm={12} xs={12}>

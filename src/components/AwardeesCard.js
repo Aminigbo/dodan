@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 import ContainedButton from "./ContainedButton";
 import { Link } from "react-router-dom";
 
-function AwardeesCard({ image, name, post, id }) {
+function AwardeesCard({ image, name, post, id, link }) {
   const useStyles = makeStyles({
     container: {
       width: "100%",
@@ -69,7 +69,7 @@ function AwardeesCard({ image, name, post, id }) {
         {post}
       </Typography>
       <div>
-        <Link to={`/category/${id}`}>
+        <Link to={link || `/category/${id}` }>
           <ContainedButton
             text={"Enter"}
             textStyle={{ color: "#fff" }}

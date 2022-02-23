@@ -18,7 +18,6 @@ import ContainedButton from "./ContainedButton";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -57,12 +56,18 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function VoteModal() {
-  const { voteModalDisplay, setVoteModalDisplay } = useCategory();
+function SponsorsModal() {
+  const { sponsorsModalDisplay, setSponsorsModalDisplay } = useCategory();
 
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [amount, setAmount] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [errorName, setErrorName] = useState(null);
+  const [errorAddress, setErrorAddress] = useState(null);
+  const [errorAmount, setErrorAmount] = useState(null);
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorPhone, setErrorPhone] = useState(null);
 
@@ -81,10 +86,13 @@ function VoteModal() {
   const addDetails = async () => {
     try {
       setLoading(true);
-      const collectionRef = collection(db, "vote-details");
+      const collectionRef = collection(db, "sponsors");
       const payload = {
-        phone,
+        phone_number: phone,
         email,
+        name,
+        address,
+        amount,
       };
       await addDoc(collectionRef, payload);
       setAdded(true);
@@ -96,19 +104,52 @@ function VoteModal() {
   };
 
   const validate = () => {
-    if (email === null) {
+    if (name === null || name === "") {
+      setErrorName("Please Enter Your Name");
+      setErrorAddress("");
+      setErrorAmount("");
+      setErrorEmail("");
+      setErrorPhone("");
+    } else if (address === null || address === "") {
+      setErrorName("");
+      setErrorAddress("Please Enter Your Address");
+      setErrorAmount("");
+      setErrorEmail("");
+      setErrorPhone("");
+    } else if (amount === null || amount === "") {
+      setErrorName("");
+      setErrorAddress("");
+      setErrorAmount("Please Enter The Amount");
+      setErrorEmail("");
+      setErrorPhone("");
+    } else if (email === null || email === "") {
+      setErrorName("");
+      setErrorAddress("");
+      setErrorAmount("");
       setErrorEmail("Please enter your email address");
       setErrorPhone("");
     } else if (!validateEmail(email)) {
+      setErrorName("");
+      setErrorAddress("");
+      setErrorAmount("");
       setErrorEmail("Please enter a valid email address");
       setErrorPhone("");
-    } else if (phone === null) {
+    } else if (phone === null || phone === "") {
+      setErrorName("");
+      setErrorAddress("");
+      setErrorAmount("");
       setErrorEmail("");
       setErrorPhone("Please enter your phone number");
     } else if (!phone.match(/^\d{11}$/g)) {
+      setErrorName("");
+      setErrorAddress("");
+      setErrorAmount("");
       setErrorEmail("");
       setErrorPhone("Please enter a valid phone number");
     } else {
+      setErrorName("");
+      setErrorAddress("");
+      setErrorAmount("");
       setErrorEmail("");
       setErrorPhone("");
       addDetails();
@@ -118,14 +159,14 @@ function VoteModal() {
   return (
     <div>
       <BootstrapDialog
-        onClose={() => setVoteModalDisplay(false)}
+        onClose={() => setSponsorsModalDisplay(false)}
         aria-labelledby="customized-dialog-title"
-        open={voteModalDisplay}
+        open={sponsorsModalDisplay}
         fullWidth={true}
       >
         <BootstrapDialogTitle
           id="customized-dialog-title"
-          onClose={() => setVoteModalDisplay(false)}
+          onClose={() => setSponsorsModalDisplay(false)}
         >
           <Typography
             variant="body1"
@@ -136,12 +177,61 @@ function VoteModal() {
               fontWeigth: "bold",
             }}
           >
-            {added ? "Welcome!" : "Fill in your details"}
+            {added ? "Dear Sponsors," : "Fill in your details"}
           </Typography>
         </BootstrapDialogTitle>
         <DialogContent dividers>
           {!added ? (
             <>
+              <div style={{ paddingBottom: "5px" }}>
+                <TextField
+                  variant="outlined"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  fullWidth
+                  label="Name of Individual or Organisation"
+                />
+                <Typography
+                  variant="body2"
+                  color="red"
+                  style={{ paddingTop: "7px" }}
+                >
+                  {errorName}
+                </Typography>
+              </div>
+              <div style={{ paddingBottom: "5px" }}>
+                <TextField
+                  variant="outlined"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  fullWidth
+                  label="Address"
+                />
+                <Typography
+                  variant="body2"
+                  color="red"
+                  style={{ paddingTop: "7px" }}
+                >
+                  {errorAddress}
+                </Typography>
+              </div>
+              <div style={{ paddingBottom: "5px" }}>
+                <TextField
+                  variant="outlined"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  fullWidth
+                  label="Amount in Naira"
+                  type="tel"
+                />
+                <Typography
+                  variant="body2"
+                  color="red"
+                  style={{ paddingTop: "7px" }}
+                >
+                  {errorAmount}
+                </Typography>
+              </div>
               <div style={{ paddingBottom: "5px" }}>
                 <TextField
                   variant="outlined"
@@ -178,11 +268,11 @@ function VoteModal() {
           ) : (
             <>
               <Typography align="center" variant="h6" gutterBottom>
-                Voting starts: March 1st, 2022
+                Thanks for Reaching Out To Us.
               </Typography>
               <Typography variant="body1" align="center">
-                You will be the first to know when the portal opens.{" "}
-                <span style={{ color: "#188a4c" }}>Cheers.</span>
+                Our team members will be in touch with you in some minutes.{" "}
+                <span style={{ color: "#188a4c" }}>Cheers!.</span>
               </Typography>
             </>
           )}
@@ -207,7 +297,7 @@ function VoteModal() {
               text={"Close"}
               textStyle={{ color: "#fff" }}
               styles={{ backgroundColor: "#188A4C" }}
-              onClick={() => setVoteModalDisplay(false)}
+              onClick={() => setSponsorsModalDisplay(false)}
             />
           )}
         </DialogActions>
@@ -216,4 +306,4 @@ function VoteModal() {
   );
 }
 
-export default VoteModal;
+export default SponsorsModal;

@@ -11,9 +11,10 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
-// import ContainedButton from "./ContainedButton";
+import ContainedButton from "./ContainedButton";
 import { Menu } from "@mui/icons-material";
 import { useNavigate, Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 function NavigationBar() {
   const tablet = useMediaQuery("(max-width: 900px)");
@@ -42,7 +43,7 @@ function NavigationBar() {
             container
             style={{ display: "flex", alignItems: "center", height: "100%" }}
           >
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <Typography
                 variant="h5"
                 style={{
@@ -59,7 +60,7 @@ function NavigationBar() {
             </Grid>
             <Grid
               item
-              xs={8}
+              xs={9}
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
@@ -84,20 +85,20 @@ function NavigationBar() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/"
+                  <HashLink
+                    to="/#about"
                     style={{ textDecoration: "none", color: "#000000" }}
                   >
                     <Typography variant="body1">About Us</Typography>
-                  </Link>
+                  </HashLink>
                 </li>
                 <li>
-                  <Link
-                    to="/"
+                  <HashLink
+                    to="/#award"
                     style={{ textDecoration: "none", color: "#000000" }}
                   >
                     <Typography variant="body1">Awards</Typography>
-                  </Link>
+                  </HashLink>
                 </li>
                 <li>
                   <Link
@@ -106,6 +107,15 @@ function NavigationBar() {
                   >
                     <Typography variant="body1">Contact Us</Typography>
                   </Link>
+                </li>
+                <li>
+                  <HashLink to={"/#sponsors"}>
+                    <ContainedButton
+                      text=" Become a Sponsor"
+                      styles={{ backgroundColor: "#188A4C" }}
+                      textStyle={{ color: "#fff" }}
+                    />
+                  </HashLink>
                 </li>
                 {/* <li>
                   <ContainedButton
@@ -178,26 +188,28 @@ function NavigationBar() {
                 >
                   <ListItemText primary={"Home"} />
                 </ListItem>
-                <ListItem
-                  button
-                  onClick={() => {
-                    setOpen(false);
-                    navigate("/");
-                  }}
-                  style={{ color: "#188c42" }}
-                >
-                  <ListItemText primary={"About Us"} />
-                </ListItem>
-                <ListItem
-                  button
-                  onClick={() => {
-                    setOpen(false);
-                    navigate("/");
-                  }}
-                  style={{ color: "#188c42" }}
-                >
-                  <ListItemText primary={"Awards"} />
-                </ListItem>
+                <HashLink to="/#about" style={{ textDecoration: "none" }}>
+                  <ListItem
+                    button
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                    style={{ color: "#188c42" }}
+                  >
+                    <ListItemText primary={"About Us"} />
+                  </ListItem>
+                </HashLink>
+                <HashLink to="/#award" style={{ textDecoration: "none" }}>
+                  <ListItem
+                    button
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                    style={{ color: "#188c42" }}
+                  >
+                    <ListItemText primary={"Awards"} />
+                  </ListItem>
+                </HashLink>
                 <ListItem
                   button
                   onClick={() => {
@@ -207,6 +219,17 @@ function NavigationBar() {
                 >
                   <ListItemText primary={"Contact US"} />
                 </ListItem>
+                <HashLink to="/#sponsors" style={{ textDecoration: "none" }}>
+                  <ListItem
+                    button
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                    style={{ color: "#188c42" }}
+                  >
+                    <ListItemText primary={"Become a Sponsor"} />
+                  </ListItem>
+                </HashLink>
                 {/* <ListItem
                   button
                   onClick={() => {
