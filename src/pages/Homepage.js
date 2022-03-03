@@ -163,7 +163,7 @@ function Homepage() {
                 image={images.mission}
                 title="REWARD"
                 text={
-                  "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
+                  "Join us to reward those who have worked so hard to serve the people. Let's strengthen our reward system."
                 }
               />
             </Grid>
@@ -172,7 +172,7 @@ function Homepage() {
                 image={images.volunteer}
                 title="ACCOUNTABILITY"
                 text={
-                  "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
+                  "This is an opportunity to remind our leaders that they are accountable to us. Let's strengthen the accountability culture."
                 }
               />
             </Grid>
@@ -181,7 +181,7 @@ function Homepage() {
                 image={images.company}
                 title="SCREEN CARD"
                 text={
-                  "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
+                  "It's time to review the scorecards of our leaders and set a standard for our democracy."
                 }
               />
             </Grid>
@@ -190,7 +190,7 @@ function Homepage() {
                 image={images.project}
                 title="LEGACY"
                 text={
-                  "RightWay helps hundreds of people to vote and wins Lorem ipsum dolor sit amet consect adipiscing elit sed eiusmod temp."
+                  "No matter how rough it's been, there are those who have strived to build a lasting history. Join us to make history as we celebrate these legends."
                 }
               />
             </Grid>
