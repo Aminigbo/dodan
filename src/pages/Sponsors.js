@@ -7,6 +7,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { useCategory } from "../context/CategoryContext";
 import ContainedButton from "../components/ContainedButton";
 import AwardeesCard from "../components/AwardeesCard";
+import SponsorCard from "../components/SponsorCard";
 
 function Sponsors() {
   const { id } = useParams();
@@ -87,7 +88,7 @@ function Sponsors() {
                       .filter((sponsors) => sponsors.id !== parseInt(id))
                       .map((sponsors) => (
                         <Grid item md={3} sm={6} xs={12}>
-                          <AwardeesCard
+                          <SponsorCard
                             key={sponsors.id}
                             image={sponsors.picture}
                             name={sponsors.title}

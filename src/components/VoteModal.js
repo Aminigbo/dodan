@@ -178,7 +178,7 @@ function VoteModal() {
           ) : (
             <>
               <Typography align="center" variant="h6" gutterBottom>
-                Voting starts: March 1st, 2022
+                Voting starts: April 1st, 2022
               </Typography>
               <Typography variant="body1" align="center">
                 You will be the first to know when the portal opens.{" "}

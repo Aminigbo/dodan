@@ -11,6 +11,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 // import NomineeCard from "../components/NomineeCard";
 import AwardeesCard from "../components/AwardeesCard";
+import SponsorCard from "../components/SponsorCard";
 import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
 import { useCategory } from "../context/CategoryContext";
@@ -67,7 +68,7 @@ function Homepage() {
                 style={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: mobile ? 40 : 65,
+                  fontSize: mobile ? 30 : 65,
                   lineHeight: mobile ? "57px" : "78px",
                   paddingBottom: "30px",
                 }}
@@ -97,7 +98,7 @@ function Homepage() {
                 style={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: mobile ? 40 : 65,
+                  fontSize: mobile ? 30 : 65,
                   lineHeight: mobile ? "57px" : "78px",
                   paddingBottom: "30px",
                 }}
@@ -127,7 +128,7 @@ function Homepage() {
                 style={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: mobile ? 40 : 65,
+                  fontSize: mobile ? 30 : 65,
                   lineHeight: mobile ? "57px" : "78px",
                   paddingBottom: "30px",
                 }}
@@ -913,7 +914,7 @@ function Homepage() {
           <Grid container spacing={5}>
             {sponsorsState.map((sponsors) => (
               <Grid key={sponsors.id} item md={3} sm={6} xs={12}>
-                <AwardeesCard
+                <SponsorCard
                   image={sponsors.picture}
                   name={sponsors.title}
                   id={sponsors.id}

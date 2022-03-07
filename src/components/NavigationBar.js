@@ -55,7 +55,8 @@ function NavigationBar() {
                 }}
                 onClick={() => navigate("/")}
               >
-                Dodan.<span style={{ color: "#188A4C" }}>NG</span>
+                Dodan<span style={{ color: "#188A4C" }}></span>
+                {/* Dodan.<span style={{ color: "#188A4C" }}>NG</span> */}
               </Typography>
             </Grid>
             <Grid
