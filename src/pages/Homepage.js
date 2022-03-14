@@ -180,7 +180,7 @@ function Homepage() {
             <Grid item md={3} sm={6} xs={12}>
               <ValuesCard
                 image={images.company}
-                title="SCREEN CARD"
+                title="SCORE CARD"
                 text={
                   "It's time to review the scorecards of our leaders and set a standard for our democracy."
                 }

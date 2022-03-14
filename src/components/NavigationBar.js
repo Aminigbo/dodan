@@ -48,14 +48,15 @@ function NavigationBar() {
                 variant="h5"
                 style={{
                   fontFamily: '"Sintony", sans-serif',
-                  fontWeight: 700,
+                  fontWeight: "bolder",
                   fontSize: "28px",
                   lineHeight: "36.48px",
                   cursor: "pointer",
+                  color: "#188A4C"
                 }}
                 onClick={() => navigate("/")}
               >
-                Dodan<span style={{ color: "#188A4C" }}></span>
+                DODAN<span style={{ color: "#188A4C" }}></span>
                 {/* Dodan.<span style={{ color: "#188A4C" }}>NG</span> */}
               </Typography>
             </Grid>

@@ -49,23 +49,26 @@ function CategoryContextProvider({ children }) {
 
   const data2 = [
     {
-      description:`3 Million Naira - \n Strategic branding at the event venue. Media walls, banners at vantage points. \n 1/4-page company profile inserted in the event brochure of 2700 copies to VVIP. \n 30 Seconds advert to run at the screen at the beginning and at the end of award presentation. \n 1 company representative to be treated and honored as a Special guest at the event. \n Choice drinks and food provision for table.`,
+      description:`Strategic branding at the event venue. Media walls, banners at vantage points. \n 1/4-page company profile inserted in the event brochure of 2700 copies to VVIP. \n 30 Seconds advert to run at the screen at the beginning and at the end of award presentation. \n 1 company representative to be treated and honored as a Special guest at the event. \n Choice drinks and food provision for table.`,
       title: "SILVER CATEGORY",
-      picture: images.legacy,
+      picture: images.silver,
+      price: '3 Million Naira',
       id: 1,
     },
     {
       description:
-        "5 Million Naira - \n Strategic branding at the event venue. Media walls, banners at vantage points, entrance, screens, signage. \nFull-page company profiles inserted in the event brochure of 2700 copies to VVIP. \n 30 Seconds advert to run at the screen at the beginning, during, and at the end of award presentation. \n 2 company representatives to be treated and honored as Special guests at the event. \n Choice drinks and food provision for a table.",
+        "Strategic branding at the event venue. Media walls, banners at vantage points, entrance, screens, signage. \nFull-page company profiles inserted in the event brochure of 2700 copies to VVIP. \n 30 Seconds advert to run at the screen at the beginning, during, and at the end of award presentation. \n 2 company representatives to be treated and honored as Special guests at the event. \n Choice drinks and food provision for a table.",
       title: "GOLD CATEGORY",
-      picture: images.reward,
+      picture: images.gold,
+      price: '5 Million Naira',
       id: 2,
     },
     {
       description:
-        "10 Million Naira - Company property /advert will be placed on our website with a link directing traffic to your home page. We will also post your products on all our social media platforms (Facebook, Instagram, Twitter, etc.). \n You will have the opportunity to brand the venue of the event. \n Your company logo will appear on all our promotional Billboards, T-shirts, Flyers, etc. \n Your representatives to be on the ground on our Interviews across the country to have a chat with the press. \n You will have the opportunity to take pictures with Award recipients of your choice. \n Full-page colored company profile inserted in the event brochure of 2700 copies to VVIP. \n 45 seconds advert to run on-screen at the beginning, during, and at the end of the award presentation. \n 5 Company representatives to be treated and honored as Special guests at the event \n Choice drinks and food provision for a table. \n You will be mentioned on Radio and Television, Newspapers and on all our media promos and adverts.",
+        "Company property /advert will be placed on our website with a link directing traffic to your home page. We will also post your products on all our social media platforms (Facebook, Instagram, Twitter, etc.). \n You will have the opportunity to brand the venue of the event. \n Your company logo will appear on all our promotional Billboards, T-shirts, Flyers, etc. \n Your representatives to be on the ground on our Interviews across the country to have a chat with the press. \n You will have the opportunity to take pictures with Award recipients of your choice. \n Full-page colored company profile inserted in the event brochure of 2700 copies to VVIP. \n 45 seconds advert to run on-screen at the beginning, during, and at the end of the award presentation. \n 5 Company representatives to be treated and honored as Special guests at the event \n Choice drinks and food provision for a table. \n You will be mentioned on Radio and Television, Newspapers and on all our media promos and adverts.",
       title: "DIAMOND CATEGORY",
-      picture: images.democracy,
+      picture: images.diamond,
+      price: '10 Million Naira',
       id: 3,
     },
     // {

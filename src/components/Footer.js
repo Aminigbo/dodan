@@ -37,7 +37,7 @@ function Footer() {
                 paddingBottom: 30,
               }}
             >
-              Dodan.<span style={{ color: "#188A4C" }}>NG</span>
+              DODAN<span style={{ color: "#188A4C" }}></span>
             </Typography>
             <Typography
               variant="body1"

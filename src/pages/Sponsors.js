@@ -29,28 +29,37 @@ function Sponsors() {
                     style={{
                       width: "100%",
                       height: "370px",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       borderRadius: "10px",
                     }}
                   />
                 </Grid>
                 <Grid item md={6} xs={12}>
-                  <div
-                    style={{
-                      width: "170px",
+                  <div style={{
+                    display: "flex",
+                  }}>
+                    <div
+                      style={{
+                        width: "170px",
+                        padding: "7px 15px",
+                        backgroundColor: "#f0f0f0",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <EmojiEventsIcon
+                        style={{ marginRight: 10, color: "#E33C1C" }}
+                      />
+                      <Typography variant="body1" style={{ color: "#188A4C" }}>
+                        Sponsors Category
+                      </Typography>
+                    </div>
+                    <Typography style={{
                       padding: "7px 15px",
-                      backgroundColor: "#f0f0f0",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <EmojiEventsIcon
-                      style={{ marginRight: 10, color: "#E33C1C" }}
-                    />
-                    <Typography variant="body1" style={{ color: "#188A4C" }}>
-                      Sponsors Category
-                    </Typography>
+                    }}>{sponsors.price}</Typography>
                   </div>
+
+
                   <Typography
                     variant="h4"
                     style={{
