@@ -126,7 +126,7 @@ function Govs() {
     new_supabase
       .from("votes")
       .select("*")
-      // .eq(`user`, userId)
+      .eq(`category`, 'ministers')
       .then((suc) => {
         let data = suc.data;
         setVote_count(data);

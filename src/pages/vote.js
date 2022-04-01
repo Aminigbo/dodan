@@ -24,6 +24,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Chip from "@mui/material/Chip";
 import HomeIcon from "@mui/icons-material/Home";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import role_model_images from "../static/images/role-model/role-model-image";
 
 function Category() {
   const { id, category } = useParams();
@@ -84,7 +85,7 @@ function Category() {
     reference: new Date().getTime().toString(),
     email: email,
     amount: amount + "00",
-    publicKey: "pk_test_9b62879216dcf007de5692c2f01c954be13b360d",
+    publicKey: "pk_live_bd2306790af6962d941c0f45888d5335328f1b15",
   };
 
   const componentProps = {
@@ -4453,6 +4454,81 @@ function Category() {
     },
   ];
 
+  const allRoleModel = [
+    {
+      state: "Dr. Dakuku Peterside",
+      gov: "Fmr. Director General, NIMASA",
+      id: 1,
+      image: role_model_images.one,
+    },
+    {
+      state: "Dr. Donald Duke",
+      gov: "Fmr. Governor, Cross River State",
+      id: 2,
+      image: role_model_images.two,
+    },
+    {
+      state: "Dr. Ngozi Okonjo-Iewala",
+      gov: "Fmr. Minister of finance",
+      id: 3,
+      image: role_model_images.three,
+    },
+    {
+      state: "Dr. Oboageli Ezekwesili",
+      gov: "Former. Minister of Education",
+      id: 4,
+      image: role_model_images.four,
+    },
+    {
+      state: "Dr. Peter Obi",
+      gov: "Fmr. Governor of Anambra State",
+      id: 5,
+      image: role_model_images.five,
+    },
+    {
+      state: "H.R.H. Sanusi Lamido Sanusi",
+      gov: "Fmr. CBN Governor",
+      id: 6,
+      image: role_model_images.six,
+    },
+    {
+      state: "Prof. Akinwumi Adesina",
+      gov: "Former. Minister of Agriculture",
+      id: 7,
+      image: role_model_images.seven,
+    },
+    {
+      state: "Prof. Charlse C. Soludo",
+      gov: "Former Governor Central Bank of Nigeria",
+      id: 8,
+      image: role_model_images.eight,
+    },
+    {
+      state: "Prof. Dora Akunyili",
+      gov: "Fmr. Director General, NAFDAC",
+      id: 9,
+      image: role_model_images.nine,
+    },
+    {
+      state: "Proffesor Ishaq Oloyede",
+      gov: "Current JAMB Registrar",
+      id: 10,
+      image: role_model_images.ten,
+    },
+    {
+      state: "Reno Omokri",
+      gov: "SA to Fmr.President G.E Jonathan",
+      id: 11,
+      image: role_model_images.eleven,
+    },
+    {
+      state: "Rt. Hom. Rotimi Chibuike Amaechi",
+      gov: "Fmr. Governor Rivers State",
+      id: 12,
+      image: role_model_images.twelve,
+    },
+  ];
+
   const allsen = [
     {
       Label: "Abia central",
@@ -5349,9 +5425,11 @@ function Category() {
     who = all_lga.filter((e) => e.id == id);
   } else if (category == "senators") {
     who = allsen.filter((e) => e.id == id);
+  } else if (category === "role-model") {
+    who = allRoleModel.filter((e) => e.id == id);
   }
 
-  let vote = ""; 
+  let vote = "";
   if (loading === false) {
     if (vote_count === null) {
       vote = "-/-";
@@ -5543,10 +5621,7 @@ function Category() {
           <Container>
             <Grid container spacing={6}>
               {category == "lga" && (
-                <>
-                  {/* <div className="img-alt" style={{ background: "gray" }}>
-                <b>{who[0].label} local government area</b>
-              </div> */}
+                <> 
 
                   <Grid item md={6} xs={12}>
                     <img
@@ -5560,15 +5635,18 @@ function Category() {
                         width: "100%",
                       }}
                     />
+                     <Typography
+                      variant="body1"
+                      style={{ paddingBottom: "20px",textAlign:"left",marginTop:"10px" }}
+                    >
+                      <b>{who[0].state} state</b>
+                    </Typography>
                   </Grid>
                 </>
               )}
 
               {category == "senators" && (
-                <>
-                  {/* <div className="img-alt" style={{ background: "gray" }}>
-                <b>{who[0].label} local government area</b>
-              </div> */}
+                <> 
 
                   <Grid item md={6} xs={12}>
                     <img
@@ -5582,16 +5660,42 @@ function Category() {
                         width: "100%",
                       }}
                     />
+                     <Typography
+                      variant="body1"
+                      style={{ paddingBottom: "20px",textAlign:"left",marginTop:"10px" }}
+                    >
+                      <b>{who[0].name}</b>
+                    </Typography>
+                  </Grid>
+                </>
+              )}
+
+              {category == "role-model" && (
+                <>
+                  <Grid item md={6} xs={12}>
+                    <img
+                      className="img"
+                      src={who[0].image}
+                      alt=""
+                      style={{
+                        // height: "370px",
+                        objectFit: "fit",
+                        borderRadius: "10px",
+                        width: "100%",
+                      }}
+                    />
+                    <Typography
+                      variant="body1"
+                      style={{ paddingBottom: "20px",textAlign:"left",marginTop:"10px" }}
+                    >
+                      <b>{who[0].state}</b>
+                    </Typography>
                   </Grid>
                 </>
               )}
 
               {category == "governors" && (
                 <>
-                  {/* <div className="img-alt" style={{ background: "gray" }}>
-                <b>{who[0].label} local government area</b>
-              </div> */}
-
                   <Grid item md={6} xs={12}>
                     <img
                       className="img"
@@ -5604,15 +5708,17 @@ function Category() {
                         width: "100%",
                       }}
                     />
+                    <Typography
+                      variant="body1"
+                      style={{ paddingBottom: "20px",textAlign:"left",marginTop:"10px" }}
+                    >
+                      <b>{who[0].gov}</b>
+                    </Typography>
                   </Grid>
                 </>
               )}
               {category == "ministers" && (
                 <>
-                  {/* <div className="img-alt" style={{ background: "gray" }}>
-                <b>{who[0].label} local government area</b>
-              </div> */}
-
                   <Grid item md={6} xs={12}>
                     <img
                       className="img"
@@ -5625,6 +5731,12 @@ function Category() {
                         width: "100%",
                       }}
                     />
+                    <Typography
+                      variant="body1"
+                      style={{ paddingBottom: "20px",textAlign:"left",marginTop:"10px" }}
+                    >
+                      <b>{who[0].gov}</b>
+                    </Typography>
                   </Grid>
                 </>
               )}
@@ -5636,11 +5748,11 @@ function Category() {
                     <Typography
                       variant="h4"
                       style={{
-                        fontSize: "27px",
+                        fontSize: "22px",
                         fontWeight: "700",
                         // paddingBottom: 20,
                         paddingTop: 0,
-                        // marginBottom:"20px"
+                        marginBottom:"20px"
                       }}
                     >
                       {who[0].label} local government area
@@ -5654,11 +5766,11 @@ function Category() {
                     <Typography
                       variant="h4"
                       style={{
-                        fontSize: "27px",
+                        fontSize: "22px",
                         fontWeight: "700",
                         // paddingBottom: 20,
                         paddingTop: 0,
-                        // marginBottom:"20px"
+                        marginBottom:"20px"
                       }}
                     >
                       {who[0].Label} senatoral district
@@ -5666,61 +5778,55 @@ function Category() {
                   </>
                 )}
 
-                <Typography
-                  variant="h4"
-                  style={{
-                    fontSize: "30px",
-                    fontWeight: "700",
-                    paddingBottom: 20,
-                    // paddingTop: 30,
-                  }}
-                >
-                  {who[0].gov}
-                </Typography>
-
                 {category == "governors" && (
                   <>
                     {" "}
                     <Typography
-                      variant="body1"
-                      style={{ paddingBottom: "20px" }}
+                      variant="h4"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "700",
+                        paddingBottom: 20,
+                        // paddingTop: 30,
+                      }}
                     >
                       {who[0].state} state governor
                     </Typography>
                   </>
                 )}
-                {category == "lga" && (
-                  <>
-                    {" "}
-                    <Typography
-                      variant="body1"
-                      style={{ paddingBottom: "20px" }}
-                    >
-                      {who[0].state} state
-                    </Typography>
-                  </>
-                )}
 
-                {category == "senators" && (
-                  <>
-                    {" "}
-                    <Typography
-                      variant="body1"
-                      style={{ paddingBottom: "20px" }}
-                    >
-                      {who[0].name}
-                    </Typography>
-                  </>
-                )}
+                
 
                 {category == "ministers" && (
                   <>
                     {" "}
                     <Typography
                       variant="body1"
-                      style={{ paddingBottom: "20px" }}
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "700",
+                        paddingBottom: 20,
+                        // paddingTop: 30,
+                      }}
                     >
                       Minister of {who[0].state}
+                    </Typography>
+                  </>
+                )}
+
+                {category == "role-model" && (
+                  <>
+                    {" "}
+                    <Typography
+                      variant="body1"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "700",
+                        paddingBottom: 20,
+                        // paddingTop: 30,
+                      }}
+                    >
+                      {who[0].gov}
                     </Typography>
                   </>
                 )}
@@ -5747,7 +5853,7 @@ function Category() {
                         {vote < 1 ? (
                           "0 Vote"
                         ) : (
-                          <>{vote == 1 ? "1 Vote" : <>{vote}  </>}</>
+                          <>{vote == 1 ? "1 Vote" : <>{vote} </>}</>
                         )}
                       </>
                     )}

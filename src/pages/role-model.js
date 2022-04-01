@@ -10,18 +10,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import images from "../static/images/governors/govImages";
+import role_model_images from "../static/images/role-model/role-model-image";
 import Autosuggest from "react-autosuggest";
 import { supabase } from "../config/index";
-
-
 
 import { emphasize, styled } from "@mui/material/styles";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Chip from "@mui/material/Chip";
 import HomeIcon from "@mui/icons-material/Home";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
 
 function Govs() {
   const new_supabase = supabase();
@@ -36,8 +33,19 @@ function Govs() {
     },
   ];
 
+  // Teach Autosuggest how to calculate suggestions for any given input value.
+  const getSuggestions = (value) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
 
-   const StyledBreadcrumb = styled(Chip)(({ theme }) => {
+    return inputLength === 0
+      ? []
+      : languages.filter(
+          (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+        );
+  };
+
+  const StyledBreadcrumb = styled(Chip)(({ theme }) => {
     const backgroundColor =
       theme.palette.mode === "light"
         ? theme.palette.grey[100]
@@ -61,18 +69,6 @@ function Govs() {
     // event.preventDefault();
     // console.info("You clicked a breadcrumb.");
   }
-
-  // Teach Autosuggest how to calculate suggestions for any given input value.
-  const getSuggestions = (value) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-
-    return inputLength === 0
-      ? []
-      : languages.filter(
-          (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
-        );
-  };
 
   // When suggestion is clicked, Autosuggest needs to populate the input
   // based on the clicked suggestion. Teach Autosuggest how to calculate the
@@ -116,7 +112,8 @@ function Govs() {
 
   const { id } = useParams();
   const { categoryState } = useCategory();
- 
+
+  const { setVoteModalDisplay } = useCategory();
   const [vote_count, setVote_count] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -125,7 +122,7 @@ function Govs() {
     new_supabase
       .from("votes")
       .select("*")
-      .eq(`category`, 'governors')
+      .eq(`category`, 'role-model')
       .then((suc) => {
         let data = suc.data;
         setVote_count(data);
@@ -140,377 +137,76 @@ function Govs() {
 
   const allStates = [
     {
-      state: "Abia",
-      gov: "Okezie Ikpeazu",
+      state: "Dr. Dakuku Peterside",
+      gov: "Fmr. Director General, NIMASA",
       id: 1,
-      image: images.Abia,
+      image:role_model_images.one,
     },
     {
-      state: "Adamawa",
-      gov: "Ahmadu Umaru",
+      state: "Dr. Donald Duke",
+      gov: "Fmr. Governor, Cross River State",
       id: 2,
-      image: images.Adamawa,
+      image:role_model_images.two,
     },
     {
-      state: "Akwa Ibom",
-      gov: "Udom Gabriel E.",
+      state: "Dr. Ngozi Okonjo-Iewala",
+      gov: "Fmr. Minister of finance",
       id: 3,
-      image: images.Akwaibom,
+      image:role_model_images.three,
     },
     {
-      state: "Anambra",
-      gov: "Charles C. S.",
+      state: "Dr. Oboageli Ezekwesili",
+      gov: "Former. Minister of Education",
       id: 4,
-      image: images.Anambra,
+      image:role_model_images.four,
     },
     {
-      state: "Bauchi",
-      gov: "Bala Muhammed",
+      state: "Dr. Peter Obi",
+      gov: "Fmr. Governor of Anambra State",
       id: 5,
-      image: images.Bauchi,
+      image:role_model_images.five,
     },
     {
-      state: "Bayelsa",
-      gov: "Douye Diri",
+      state: "H.R.H. Sanusi Lamido Sanusi",
+      gov: "Fmr. CBN Governor",
       id: 6,
-      image: images.Bayelsa,
+      image:role_model_images.six,
     },
     {
-      state: "Benue",
-      gov: "Samuel Ortom",
+      state: "Prof. Akinwumi Adesina",
+      gov: "Former. Minister of Agriculture",
       id: 7,
-      image: images.Benue,
+      image:role_model_images.seven,
     },
     {
-      state: "Borno",
-      gov: "Babagana Umara Z.",
+      state: "Prof. Charlse C. Soludo",
+      gov: "Former Governor Central Bank of Nigeria",
       id: 8,
-      image: images.Borno,
+      image:role_model_images.eight,
     },
     {
-      state: "Cross River",
-      gov: "Benedict Ayade",
+      state: "Prof. Dora Akunyili",
+      gov: "Fmr. Director General, NAFDAC",
       id: 9,
-      image: images.CrossRivers,
+      image:role_model_images.nine,
     },
     {
-      state: "Delta",
-      gov: "Ifeanyi Okowa",
+      state: "Proffesor Ishaq Oloyede",
+      gov: "Current JAMB Registrar",
       id: 10,
-      image: images.Delta,
+      image:role_model_images.ten,
     },
     {
-      state: "Ebonyi",
-      gov: "Dave Umahi",
+      state: "Reno Omokri",
+      gov: "SA to Fmr.President G.E Jonathan",
       id: 11,
-      image: images.Ebonyi,
+      image:role_model_images.eleven,
     },
     {
-      state: "Edo",
-      gov: "Godwin Obaseki",
+      state: "Rt. Hom. Rotimi Chibuike Amaechi",
+      gov: "Fmr. Governor Rivers State",
       id: 12,
-      image: images.Edo,
-    },
-    {
-      state: "Ekiti",
-      gov: "Kayode Fayemi",
-      id: 13,
-      image: images.Ekiti,
-    },
-    {
-      state: "Enugu",
-      gov: "Ifeanyi Ugwuanyi",
-      id: 14,
-      image: images.Enugu,
-    },
-    {
-      state: "Gombe",
-      gov: "Hope Uzodinma",
-      id: 15,
-      image: images.Gombe,
-    },
-    {
-      state: "Imo",
-      gov: "Mohammed B. A.",
-      id: 16,
-      image: images.Imo,
-    },
-    {
-      state: "Jigawa State",
-      gov: "Mohammed B. A.",
-      id: 17,
-      image: images.Jigawa,
-    },
-    {
-      state: "Kaduna",
-      gov: "N. A. el-Rufai",
-      id: 18,
-      image: images.Kaduna,
-    },
-    {
-      state: "Kano",
-      gov: "Abdullahi U. G.",
-      id: 19,
-      image: images.Kano,
-    },
-    {
-      state: "Katsina",
-      gov: "Aminu Bello Masari",
-      id: 20,
-      image: images.Katsina,
-    },
-    {
-      state: "Kebbi",
-      gov: "Abubakar Atiku B.",
-      id: 21,
-      image: images.Kebbi,
-    },
-    {
-      state: "Kogi",
-      gov: "Yahaya Bello",
-      id: 22,
-      image: images.Kogi,
-    },
-    {
-      state: "Kwara",
-      gov: "AbdulRahman A",
-      id: 23,
-      image: images.Kwara,
-    },
-    {
-      state: "Lagos",
-      gov: "Babajide S.",
-      id: 24,
-      image: images.Lagos,
-    },
-    {
-      state: "Nasarawa",
-      gov: "Abdullahi Sule",
-      id: 25,
-      image: images.Nasarawa,
-    },
-    {
-      state: "Niger",
-      gov: "Abubakar Sani B.",
-      id: 26,
-      image: images.Niger,
-    },
-    {
-      state: "Ogun",
-      gov: "Dapo Abiodun",
-      id: 27,
-      image: images.Ogun,
-    },
-    {
-      state: "Ondo",
-      gov: "Oluwarotimi O. A.",
-      id: 28,
-      image: images.Ondo,
-    },
-    {
-      state: "Osun",
-      gov: "Adegboyega O.",
-      id: 29,
-      image: images.Osun,
-    },
-    {
-      state: "Oyo",
-      gov: "Oluwaseyi Makinde",
-      id: 30,
-      image: images.Oyo,
-    },
-    {
-      state: "Plateau",
-      gov: "Simon Lalong",
-      id: 31,
-      image: images.Plateau,
-    },
-    {
-      state: "Rivers",
-      gov: "Ezenwo N. Wike",
-      id: 32,
-      image: images.Rivers,
-    },
-    {
-      state: "Sokoto",
-      gov: "Aminu Waziri T.",
-      id: 33,
-      image: images.Sokoto,
-    },
-    {
-      state: "Taraba",
-      gov: "Darius Ishaku",
-      id: 34,
-      image: images.Taraba,
-    },
-    {
-      state: "Yobe",
-      gov: "Mai Mala Buni",
-      id: 35,
-      image: images.Yobe,
-    },
-    {
-      state: "Zamfara",
-      gov: "Bello Matawalle",
-      id: 36,
-      image: images.Zamfara,
-    },
-    {
-      state: "FCT Abuja",
-      gov: "Bello Mohammed",
-      id: 37,
-      image: images.Abuja,
-    },
-  ];
-
-  const voteCOunt = [
-    {
-      id: 1,
-      vote: 443,
-    },
-    {
-      id: 2,
-      vote: 543,
-    },
-    {
-      id: 3,
-      vote: 333,
-    },
-    {
-      id: 4,
-      vote: 34,
-    },
-    {
-      id: 5,
-      vote: 543,
-    },
-    {
-      id: 6,
-      vote: 43,
-    },
-    {
-      id: 7,
-      vote: 43,
-    },
-    {
-      id: 8,
-      vote: 32,
-    },
-    {
-      id: 9,
-      vote: 332,
-    },
-    {
-      id: 10,
-      vote: 543,
-    },
-    {
-      id: 11,
-      vote: 332,
-    },
-    {
-      id: 12,
-      vote: 732,
-    },
-    {
-      id: 13,
-      vote: 889,
-    },
-    {
-      id: 14,
-      vote: 543,
-    },
-    {
-      id: 15,
-      vote: 543,
-    },
-    {
-      id: 16,
-      vote: 55,
-    },
-    {
-      id: 17,
-      vote: 543,
-    },
-    {
-      id: 18,
-      vote: 445,
-    },
-    {
-      id: 19,
-      vote: 443,
-    },
-    {
-      id: 20,
-      vote: 342,
-    },
-    {
-      id: 21,
-      vote: 543,
-    },
-    {
-      id: 22,
-      vote: 54,
-    },
-    {
-      id: 23,
-      vote: 54,
-    },
-    {
-      id: 24,
-      vote: 43,
-    },
-    {
-      id: 25,
-      vote: 54,
-    },
-    {
-      id: 26,
-      vote: 334,
-    },
-    {
-      id: 27,
-      vote: 121,
-    },
-    {
-      id: 28,
-      vote: 32,
-    },
-    {
-      id: 29,
-      vote: 22,
-    },
-    {
-      id: 30,
-      vote: 332,
-    },
-    {
-      id: 31,
-      vote: 33,
-    },
-    {
-      id: 32,
-      vote: 998,
-    },
-    {
-      id: 33,
-      vote: 443,
-    },
-    {
-      id: 34,
-      vote: 223,
-    },
-    {
-      id: 35,
-      vote: 333,
-    },
-    {
-      id: 36,
-      vote: 434,
-    },
-    {
-      id: 37,
-      vote: 32,
+      image:role_model_images.twelve,
     },
   ];
 
@@ -529,7 +225,7 @@ function Govs() {
       >
         <br />
 
-         <div role="presentation" onClick={handleClick}>
+        <div role="presentation" onClick={handleClick}>
           <Breadcrumbs aria-label="breadcrumb">
             <StyledBreadcrumb
               component="a"
@@ -537,23 +233,26 @@ function Govs() {
               label="Home"
               icon={<HomeIcon fontSize="small" />}
             />
-            <StyledBreadcrumb component="a" href="/category/1" label="Category" />
             <StyledBreadcrumb
-              label="Governors"
-              deleteIcon={<ExpandMoreIcon />} 
+              component="a"
+              href="/category/1"
+              label="Category"
+            />
+            <StyledBreadcrumb
+              label="Ministers"
+              deleteIcon={<ExpandMoreIcon />}
             />
           </Breadcrumbs>
         </div>
-
-
         <div
           style={{
             color: "rgb(24, 138, 76)",
           }}
         >
-         <h2> Which governor do you think deserves the Legacy Award?</h2>
+          <h2>Role model of democracy</h2>
         </div>
-        <br /><br />
+        <br />
+        <br />
         {loading === true && (
           <>
             <div
@@ -586,18 +285,18 @@ function Govs() {
           {allStates.map((e) => {
             let id = e.id;
             // let vote = vote_count.filter((e) => e.voted == id).length
-             let vote = "";
-              if (loading === false) {
-                if (vote_count === null) {
-                  vote = "error";
-                } else {
-                  vote = vote_count.filter((e) => e.voted == id).length;
-                }
+            let vote = "";
+            if (loading === false) {
+              if (vote_count === null) {
+                vote = "error";
+              } else {
+                vote = vote_count.filter((e) => e.voted == id).length;
               }
+            }
             return (
               <>
                 <Link
-                  to={`/vote/governors/${id}`}
+                  to={`/vote/role-model/${id}`}
                   style={{ textDecoration: "none", textAlign: "center" }}
                 >
                   <Card style={{ display: "inline-block" }} className="card">
@@ -610,10 +309,10 @@ function Govs() {
                       image={e.image}
                     />
                     <CardContent>
-                      <Typography gutterBottom variant="p" component="div">
-                        {e.gov}
+                      <Typography gutterBottom variant="h" component="div">
+                        {e.state}
                       </Typography>
-                      <small>{e.state} State Governor</small>
+                      <small>{e.gov}</small>
                     </CardContent>
                     <CardActions>
                       {loading === true ? (
@@ -638,13 +337,26 @@ function Govs() {
                               color: "white",
                             }}
                             size="small"
-                            >
-                              {vote_count === null ?<><small style={{fontSize:"9px", color:"gold"}}>Network error</small></>:<>{vote < 1 ? (
-                              "0 Vote"
+                          >
+                            {vote_count === null ? (
+                              <>
+                                <small
+                                  style={{ fontSize: "9px", color: "gold" }}
+                                >
+                                  Network error
+                                </small>
+                              </>
                             ) : (
-                              <>{vote == 1 ? "1 Vote" : <>{vote} votes</>}</>
-                            )}</>}
-                            
+                              <>
+                                {vote < 1 ? (
+                                  "0 Vote"
+                                ) : (
+                                  <>
+                                    {vote == 1 ? "1 Vote" : <>{vote} votes</>}
+                                  </>
+                                )}
+                              </>
+                            )}
                           </Button>
                         </>
                       )}

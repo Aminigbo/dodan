@@ -70,12 +70,16 @@ function Category() {
 
                   {category.id != 1 ? (
                     <>
-                      <ContainedButton
-                        text={"Governors"}
+                      {category.id == 3 && <>
+                        <Link to="/role-model">
+                           <ContainedButton
+                        text={"Vote"}
                         textStyle={{ color: "#fff" }}
                         styles={{ backgroundColor: "#188A4C" }}
-                        onClick={() => setVoteModalDisplay(true)}
+                        // onClick={() => setVoteModalDisplay(true)}
                       />
+                        </Link>
+                      </>}
                     </>
                   ) : (
                     <>

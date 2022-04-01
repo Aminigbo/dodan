@@ -10,6 +10,7 @@ import Vote from "./pages/vote";
 import Mins from "./pages/ministers"
 import LGA from "./pages/lga"
 import SEN from "./pages/sen"
+import ROLE_MODEL from "./pages/role-model"
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/ministers" exact element={<Mins />} />
         <Route path="/lga" exact element={<LGA />} />
         <Route path="/senators" exact element={<SEN />} />
+        <Route path="/role-model" exact element={<ROLE_MODEL />} />
       </Routes>
       {/* <VoteModal /> */}
       <SponsorsModal/>
