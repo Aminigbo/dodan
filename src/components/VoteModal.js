@@ -17,7 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ContainedButton from "./ContainedButton";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
-
+import { useParams } from "react-router-dom";  
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -57,8 +57,9 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function VoteModal() {
+export function VoteModal({ appState, dispNoti }) {
   const { voteModalDisplay, setVoteModalDisplay } = useCategory();
+  const { id, category } = useParams();
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -96,23 +97,25 @@ function VoteModal() {
   };
 
   const validate = () => {
-    if (email === null) {
-      setErrorEmail("Please enter your email address");
-      setErrorPhone("");
-    } else if (!validateEmail(email)) {
-      setErrorEmail("Please enter a valid email address");
-      setErrorPhone("");
-    } else if (phone === null) {
-      setErrorEmail("");
-      setErrorPhone("Please enter your phone number");
-    } else if (!phone.match(/^\d{11}$/g)) {
-      setErrorEmail("");
-      setErrorPhone("Please enter a valid phone number");
-    } else {
-      setErrorEmail("");
-      setErrorPhone("");
-      addDetails();
-    }
+    // if (email === null) {
+    //   setErrorEmail("Please enter your email address");
+    //   setErrorPhone("");
+    // } else if (!validateEmail(email)) {
+    //   setErrorEmail("Please enter a valid email address");
+    //   setErrorPhone("");
+    // } else if (phone === null) {
+    //   setErrorEmail("");
+    //   setErrorPhone("Please enter your phone number");
+    // } else if (!phone.match(/^\d{11}$/g)) {
+    //   setErrorEmail("");
+    //   setErrorPhone("Please enter a valid phone number");
+    // } else {
+    //   setErrorEmail("");
+    //   setErrorPhone("");
+    //   addDetails();
+    // }
+
+    console.log(category+" "+ id)
   };
 
   return (
@@ -215,5 +218,5 @@ function VoteModal() {
     </div>
   );
 }
-
-export default VoteModal;
+ 
+ 

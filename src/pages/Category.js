@@ -7,6 +7,8 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { useCategory } from "../context/CategoryContext";
 import ContainedButton from "../components/ContainedButton";
 import AwardeesCard from "../components/AwardeesCard";
+import "../static/css/index.css";
+import { Link } from "react-router-dom";
 
 function Category() {
   const { id } = useParams();
@@ -25,12 +27,11 @@ function Category() {
               <Grid container spacing={6}>
                 <Grid item md={6} xs={12}>
                   <img
+                    className="img"
                     src={category.picture}
                     alt=""
                     style={{
-                      width: "100%",
-                      height: "370px",
-                      objectFit: "cover",
+                      objectFit: "fit",
                       borderRadius: "10px",
                     }}
                   />
@@ -66,13 +67,76 @@ function Category() {
                   <Typography variant="body1" style={{ paddingBottom: "20px" }}>
                     {category.description}
                   </Typography>
-                  <ContainedButton
-                    text={"Enter to Vote"}
-                    textStyle={{ color: "#fff" }}
-                    styles={{ backgroundColor: "#188A4C" }}
-                    onClick={() => setVoteModalDisplay(true)}
-                  />
+
+                  {category.id != 1 ? (
+                    <>
+                      <ContainedButton
+                        text={"Governors"}
+                        textStyle={{ color: "#fff" }}
+                        styles={{ backgroundColor: "#188A4C" }}
+                        onClick={() => setVoteModalDisplay(true)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <div className="catHolder">
+                        <p>
+                          <b>Select category to vote</b>
+                        </p>
+                        <Link to={`/governors`}>
+                          <ContainedButton
+                            text={"Governors"}
+                            textStyle={{ color: "#fff" }}
+                            styles={{ backgroundColor: "#188A4C" }}
+                            // onClick={() => setVoteModalDisplay(true)}
+                          />
+                        </Link>
+
+                        <Link to={`/ministers`}>
+                          <ContainedButton
+                            text={"Ministers"}
+                            textStyle={{ color: "#fff" }}
+                            styles={{ backgroundColor: "#188A4C" }}
+                            // onClick={() => setVoteModalDisplay(true)}
+                          />
+                        </Link>
+                        <ContainedButton
+                          text={"House of reps."}
+                          textStyle={{ color: "#fff" }}
+                          styles={{ backgroundColor: "#188A4C" }}
+                          onClick={() => setVoteModalDisplay(true)}
+                        />
+                        <ContainedButton
+                          text={"House of assemblies"}
+                          textStyle={{ color: "#fff" }}
+                          styles={{ backgroundColor: "#188A4C" }}
+                          onClick={() => setVoteModalDisplay(true)}
+                        />
+
+                        <Link to={`/lga`}>
+                          <ContainedButton
+                            text={"LGA Charimen"}
+                            textStyle={{ color: "#fff" }}
+                            styles={{ backgroundColor: "#188A4C" }}
+                            // onClick={() => setVoteModalDisplay(true)}
+                          />
+                          </Link>
+                          
+                          <Link to={`/senators`}>
+                          <ContainedButton
+                            text={"National Assembly"}
+                            textStyle={{ color: "#fff" }}
+                            styles={{ backgroundColor: "#188A4C" }}
+                            // onClick={() => setVoteModalDisplay(true)}
+                          />
+                        </Link>
+                      </div>
+                    </>
+                  )}
+
+                  <br />
                 </Grid>
+
                 <Grid item xs={12} sm={12} md={12}>
                   <Grid container spacing={5}>
                     <Grid item xs={12}>
