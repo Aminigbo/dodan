@@ -83,12 +83,12 @@ function Homepage() {
                   justifyContent: "center",
                 }}
               >
-                <ContainedButton
+                {/* <ContainedButton
                   text={"Vote"}
                   textStyle={{ color: "#fff" }}
                   styles={{ backgroundColor: "#188A4C" }}
                   onClick={() => setVoteModalDisplay(true)}
-                />
+                /> */}
               </div>
             </div>
             <div style={{ width: "100%", height: "auto" }}>
@@ -113,12 +113,12 @@ function Homepage() {
                   justifyContent: "center",
                 }}
               >
-                <ContainedButton
+                {/* <ContainedButton
                   text={"Vote"}
                   textStyle={{ color: "#fff" }}
                   styles={{ backgroundColor: "#188A4C" }}
                   onClick={() => setVoteModalDisplay(true)}
-                />
+                /> */}
               </div>
             </div>
             <div style={{ width: "100%", height: "auto" }}>
@@ -143,12 +143,12 @@ function Homepage() {
                   justifyContent: "center",
                 }}
               >
-                <ContainedButton
+                {/* <ContainedButton
                   text={"Vote"}
                   textStyle={{ color: "#fff" }}
                   styles={{ backgroundColor: "#188A4C" }}
                   onClick={() => setVoteModalDisplay(true)}
-                />
+                /> */}
               </div>
             </div>
           </OwlCarousel>
@@ -237,7 +237,7 @@ function Homepage() {
                   paddingTop: 30,
                 }}
               >
-                Dividense Of Democracy Award, Nigeria (DODAN)
+                Dividence Of Democracy Award, Nigeria (DODAN)
               </Typography>
               <Typography variant="body1" style={{ paddingBottom: "20px" }}>
                 Award is put together to appreciate, celebrate honor and
@@ -251,11 +251,11 @@ function Homepage() {
                 of people to verify, confirm claims of projects, programs etc of
                 the highest voted for Politicians for the award.
               </Typography>
-              <ContainedButton
+              {/* <ContainedButton
                 text={"Learn More"}
                 textStyle={{ color: "#fff" }}
                 styles={{ backgroundColor: "#188A4C" }}
-              />
+              /> */}
             </Grid>
           </Grid>
         </Container>
@@ -884,6 +884,22 @@ function Homepage() {
               />
               <img
                 src={images.test4}
+                alt=""
+                style={{ width: "auto", height: "60px", objectFit: "contain" }}
+              />
+              {/*  */}
+               <img
+                src={images.test5}
+                alt=""
+                style={{ width: "auto", height: "60px", objectFit: "contain" }}
+              />
+               <img
+                src={images.test6}
+                alt=""
+                style={{ width: "auto", height: "60px", objectFit: "contain" }}
+              />
+               <img
+                src={images.test7}
                 alt=""
                 style={{ width: "auto", height: "60px", objectFit: "contain" }}
               />

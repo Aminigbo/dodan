@@ -10,7 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import role_model_images from "../static/images/role-model/role-model-image";
+import role_model_images from "../static/images//special/special";
 import Autosuggest from "react-autosuggest";
 import { supabase } from "../config/index";
 
@@ -117,102 +117,33 @@ function Govs() {
   const [vote_count, setVote_count] = useState("");
   const [loading, setLoading] = useState(true);
 
-  function getVotes(userId) {
-    console.log("Loading");
-    new_supabase
-      .from("votes")
-      .select("*")
-      .eq(`category`, 'role-model')
-      .then((suc) => {
-        let data = suc.data;
-        setVote_count(data);
-        setLoading(false);
-      })
-      .catch((err) => {});
-  }
-
-  React.useEffect(() => {
-    getVotes();
-  }, []);
-
+  
+ 
   const allStates = [
     {
-      state: "Nasir Ahmad El-Rufai",
-      gov: "Former Minister FCT Abuja",
-      id: 13,
-      image:role_model_images.thirteen,
-    }, {
-      state: "Dr. Dakuku Peterside",
-      gov: "Fmr. Director General, NIMASA",
+      state: "Dr. Goodluck Jonathan",
+      gov: "Fmr. President, Federal Republic of Nigeria",
       id: 1,
       image:role_model_images.one,
-    },
-    {
-      state: "Dr. Donald Duke",
-      gov: "Fmr. Governor, Cross River State",
+    }, {
+      state: "Dr. Patience Jonathan",
+      gov: "Fmr. First Lady, Federal Republic of Nigeria",
       id: 2,
       image:role_model_images.two,
     },
     {
-      state: "Dr. Ngozi Okonjo-Iweala",
-      gov: "Fmr. Minister of finance",
+      state: "Gen. Abdusalami Abubakar",
+      gov: "Fmr. Head Of State, Nigeria",
       id: 3,
       image:role_model_images.three,
     },
     {
-      state: "Dr. Oboageli Ezekwesili",
-      gov: "Former. Minister of Education",
+      state: "H.E. Olusegun Obasanjo",
+      gov: "Fmr. President, Federal Republic of Nigeria",
       id: 4,
       image:role_model_images.four,
     },
-    {
-      state: "Dr. Peter Obi",
-      gov: "Fmr. Governor of Anambra State",
-      id: 5,
-      image:role_model_images.five,
-    },
-    {
-      state: "H.R.H. Sanusi Lamido Sanusi",
-      gov: "Fmr. CBN Governor",
-      id: 6,
-      image:role_model_images.six,
-    },
-    {
-      state: "Dr. Akinwumi Adesina",
-      gov: "Former. Minister of Agriculture",
-      id: 7,
-      image:role_model_images.seven,
-    },
-    {
-      state: "Prof. Charlse C. Soludo",
-      gov: "Former Governor Central Bank of Nigeria",
-      id: 8,
-      image:role_model_images.eight,
-    },
-    {
-      state: "Prof. Dora Akunyili",
-      gov: "Fmr. Director General, NAFDAC",
-      id: 9,
-      image:role_model_images.nine,
-    },
-    {
-      state: "Proffesor Ishaq Oloyede",
-      gov: "Current JAMB Registrar",
-      id: 10,
-      image:role_model_images.ten,
-    },
-    {
-      state: "Reno Omokri",
-      gov: "SA to Fmr.President G.E Jonathan",
-      id: 11,
-      image:role_model_images.eleven,
-    },
-    {
-      state: "Rt. Hom. Rotimi Chibuike Amaechi",
-      gov: "Fmr. Governor Rivers State",
-      id: 12,
-      image:role_model_images.twelve,
-    },
+    
   ];
 
   return (
@@ -230,61 +161,17 @@ function Govs() {
       >
         <br />
 
-        <div role="presentation" onClick={handleClick}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <StyledBreadcrumb
-              component="a"
-              href="/"
-              label="Home"
-              icon={<HomeIcon fontSize="small" />}
-            />
-            <StyledBreadcrumb
-              component="a"
-              href="/category/1"
-              label="Category"
-            />
-            <StyledBreadcrumb
-              label="Ministers"
-              deleteIcon={<ExpandMoreIcon />}
-            />
-          </Breadcrumbs>
-        </div>
+         
         <div
           style={{
             color: "rgb(24, 138, 76)",
           }}
         >
-          <h2>Role model of democracy</h2>
+          <h2>The award is meant for very outstanding individuals</h2>
         </div>
         <br />
         <br />
-        {loading === true && (
-          <>
-            <div
-              style={{
-                position: "fixed",
-                width: "100%",
-                height: "100%",
-                left: "0px",
-                top: "0px",
-                background: "rgb(0,0,0,0.8)",
-                zIndex: "10000",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  width: "40%",
-                  left: "30%",
-                  top: "50%",
-                  color: "white",
-                }}
-              >
-                Please wait....
-              </div>
-            </div>
-          </>
-        )}
+         
 
         <>
           {allStates.map((e) => {
@@ -318,62 +205,15 @@ function Govs() {
                         {e.state}
                       </Typography>
                       <small>{e.gov}</small>
-                    </CardContent>
-                    <CardActions>
-                      {loading === true ? (
-                        <>
-                          {" "}
-                          <Button
-                            style={{
-                              backgroundColor: "rgb(24, 138, 76)",
-                              color: "white",
-                            }}
-                            size="small"
-                          >
-                            loading...
-                          </Button>
-                        </>
-                      ) : (
-                        <>
-                          {" "}
-                          <Button
-                            style={{
-                              backgroundColor: "rgb(24, 138, 76)",
-                              color: "white",
-                            }}
-                            size="small"
-                          >
-                            {vote_count === null ? (
-                              <>
-                                <small
-                                  style={{ fontSize: "9px", color: "gold" }}
-                                >
-                                  Network error
-                                </small>
-                              </>
-                            ) : (
-                              <>
-                                {vote < 1 ? (
-                                  "0 Vote"
-                                ) : (
-                                  <>
-                                    {vote == 1 ? "1 Vote" : <>{vote} votes</>}
-                                  </>
-                                )}
-                              </>
-                            )}
-                          </Button>
-                        </>
-                      )}
-                      {/* <Button size="small">Learn More</Button> */}
-                    </CardActions>
+                    </CardContent> 
                   </Card>
                 </Link>
               </>
             );
           })}
         </>
-      </div>
+        </div>
+        <br /><br />
       <Footer />
     </>
   );

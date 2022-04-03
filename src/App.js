@@ -11,6 +11,9 @@ import Mins from "./pages/ministers"
 import LGA from "./pages/lga"
 import SEN from "./pages/sen"
 import ROLE_MODEL from "./pages/role-model"
+import SERVICE from "./pages/service-to-the"
+import SPECIAL from "./pages/special"
+import REP from "./pages/rep"
 
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
         <Route path="/lga" exact element={<LGA />} />
         <Route path="/senators" exact element={<SEN />} />
         <Route path="/role-model" exact element={<ROLE_MODEL />} />
+        <Route path="/service" exact element={<SERVICE />} />
+        <Route path="/special" exact element={<SPECIAL />} />
+        <Route path="/house-of-rep" exact element={<REP />} />
       </Routes>
       {/* <VoteModal /> */}
       <SponsorsModal/>

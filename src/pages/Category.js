@@ -80,6 +80,28 @@ function Category() {
                       />
                         </Link>
                       </>}
+                      {category.id == 4 && <>
+                        <Link to="/service">
+                           <ContainedButton
+                        text={"Vote"}
+                        textStyle={{ color: "#fff" }}
+                        styles={{ backgroundColor: "#188A4C" }}
+                        // onClick={() => setVoteModalDisplay(true)}
+                      />
+                        </Link>
+                      </>}
+
+                      {category.id == 5 && <>
+                        <Link to="/special">
+                           <ContainedButton
+                        text={"See Personalities"}
+                        textStyle={{ color: "#fff" }}
+                        styles={{ backgroundColor: "#188A4C" }}
+                        // onClick={() => setVoteModalDisplay(true)}
+                      />
+                        </Link>
+                      </>}
+
                     </>
                   ) : (
                     <>
@@ -104,18 +126,20 @@ function Category() {
                             // onClick={() => setVoteModalDisplay(true)}
                           />
                         </Link>
-                        <ContainedButton
+                          <Link to="/house-of-rep">
+                           <ContainedButton
                           text={"House of reps."}
                           textStyle={{ color: "#fff" }}
                           styles={{ backgroundColor: "#188A4C" }}
                           onClick={() => setVoteModalDisplay(true)}
-                        />
-                        <ContainedButton
+                            />
+                          </Link>
+                        {/* <ContainedButton
                           text={"House of assemblies"}
                           textStyle={{ color: "#fff" }}
                           styles={{ backgroundColor: "#188A4C" }}
                           onClick={() => setVoteModalDisplay(true)}
-                        />
+                        /> */}
 
                         <Link to={`/lga`}>
                           <ContainedButton
@@ -128,7 +152,7 @@ function Category() {
                           
                           <Link to={`/senators`}>
                           <ContainedButton
-                            text={"National Assembly"}
+                            text={"Senators"}
                             textStyle={{ color: "#fff" }}
                             styles={{ backgroundColor: "#188A4C" }}
                             // onClick={() => setVoteModalDisplay(true)}

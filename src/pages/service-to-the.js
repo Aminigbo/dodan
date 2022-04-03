@@ -10,7 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import images from "../static/images/ministers/ministerimg";
+import serviceimage from "../static/images/service/service";
 import Autosuggest from "react-autosuggest";
 import { supabase } from "../config/index";
 
@@ -122,7 +122,7 @@ function Govs() {
     new_supabase
       .from("votes")
       .select("*")
-      .eq(`category`, "ministers")
+      .eq(`category`, 'service')
       .then((suc) => {
         let data = suc.data;
         setVote_count(data);
@@ -135,264 +135,90 @@ function Govs() {
     getVotes();
   }, []);
 
-  const allStates = [
-    {
-      state: "Petroleum",
-      gov: "Muhammadu Buhari",
+  const allagency = [
+     {
+      state: "FCCPC (Federal Competition and Consumer Protection Commission)",
+      // gov: "Fmr. Director General, NIMASA",
       id: 1,
-      image: images.petroleum,
+      image:serviceimage.one,
     },
     {
-      state: "FCT Abuja",
-      gov: "Mohammed M. Bello",
+      state: "FERMA (Federal Roads Maintenance Agency)",
+      // gov: "Fmr. Governor, Cross River State",
       id: 2,
-      image: images.fct,
+      image:serviceimage.two,
     },
     {
-      state: "Niger Delta",
-      gov: "Godswill Akpabio",
+      state: "ICPC (Independent Corrupt Practices & Other Related Offeces Commission)",
+      // gov: "Fmr. Minister of finance",
       id: 3,
-      image: images.niger_delta,
+      image:serviceimage.three,
     },
     {
-      state: "Labour/Empl.",
-      gov: "Chris Ngige",
+      state: "JAMB (Joint Admissions and Matriculation Board)",
+      // gov: "Former. Minister of Education",
       id: 4,
-      image: images.labour,
+      image:serviceimage.four,
     },
     {
-      state: "State, Environment",
-      gov: "Sharon Ikeazor",
+      state: "NAFDAC (National Agency for Food and Drug Administration and Control)",
+      // gov: "Fmr. Governor of Anambra State",
       id: 5,
-      image: images.environment,
+      image:serviceimage.five,
     },
     {
-      state: "Minister of Education",
-      gov: "Adamu Adamu",
+      state: "NAPTIP (National Agency for the Prohibition of Trafficking  in Persons)",
+      // gov: "Fmr. CBN Governor",
       id: 6,
-      image: images.education,
+      image:serviceimage.six,
     },
     {
-      state: "State Industry",
-      gov: "Amb. Maryam Katagum",
+      state: "NECO (National Examination Council)",
+      // gov: "Former. Minister of Agriculture",
       id: 7,
-      image: images.industry,
+      image:serviceimage.seven,
     },
     {
-      state: "State for Petroleum",
-      gov: "Timipre Sylva ",
+      state: "NIMASA (Nigerian Maritime Administration & Safety Agency)",
+      // gov: "Former Governor Central Bank of Nigeria",
       id: 8,
-      image: images.state_petroleum,
+      image:serviceimage.eight,
     },
     {
-      state: "Special Duties",
-      gov: "George Akume",
+      state: "NITDA (National Information Technology Development Agency)",
+      // gov: "Fmr. Director General, NAFDAC",
       id: 9,
-      image: images.special_duties,
+      image:serviceimage.nine,
     },
     {
-      state: "Agric/Rural Dev.",
-      gov: "Mustapha Baba S.",
+      state: "NDDC (Niger Delta Development Commission)",
+      // gov: "SA to Fmr.President G.E Jonathan",
       id: 10,
-      image: images.agric,
-    },
+      image:serviceimage.ten,
+    }, 
     {
-      state: "State, for Power",
-      gov: "Goddy Jedy Agba",
+      state: "NOA (National Orientation Agency)",
+      // gov: "Fmr. Governor Rivers State",
       id: 11,
-      image: images.state_power,
-    },
+      image:serviceimage.eleven,
+     },
     {
-      state: "State, for Niger Delta",
-      gov: "Festus Keyamo",
+      state: "NOSDRA (National Oil Spill Detection and Response Agency)",
+      // gov: "Fmr. Governor Rivers State",
       id: 12,
-      image: images.state_niger_delta,
-    },
-    {
-      state: "Science and Technology",
-      gov: "Ogbonnaya Onu",
+      image:serviceimage.twelve,
+     },
+     {
+      state: "PAP (Presidential Amnesty Programme)",
+      // gov: "Fmr. Governor Rivers State",
       id: 13,
-      image: images.science,
-    },
-    {
-      state: "Minister of Health",
-      gov: "Osagie Ehanire",
+      image:serviceimage.thirteen,
+     },
+     {
+      state: "EFCC (Economic and Financial Crimes Commision)",
+      // gov: "Fmr. Minister FCT Abuja",
       id: 14,
-      image: images.health,
-    },
-    {
-      state: "Industry, Trade and Investment",
-      gov: "Richard A. Adebayo",
-      id: 16,
-      image: images.industry,
-    },
-    {
-      state: "Foreign Affairs",
-      gov: "Geoffrey Onyeama",
-      id: 17,
-      image: images.foreign,
-    },
-    {
-      state: "Communication",
-      gov: "Ali Isa Pantami",
-      id: 18,
-      image: images.communication,
-    },
-    {
-      state: "State for Education",
-      gov: "Emeka Nwajiuba",
-      id: 19,
-      image: images.state_education,
-    },
-    {
-      state: "Water Resources",
-      gov: "Suleiman Adamu ",
-      id: 20,
-      image: images.water,
-    },
-    {
-      state: "Finance",
-      gov: "Zainab Ahmed",
-      id: 21,
-      image: images.finance,
-    },
-    {
-      state: "Environment",
-      gov: "Muhammad Mahmood",
-      id: 22,
-      image: images.environment,
-    },
-    // {
-    //   state: "Agriculture and Rural Development",
-    //   gov: "Sabo Nanono",
-    //   id: 23,
-    //   image: images.Kwara,
-    // },
-    {
-      state: "Defence",
-      gov: "Bashir Salihi Magashi",
-      id: 24,
-      image: images.defence,
-    },
-    {
-      state: "Aviation",
-      gov: "Hadi Sirika",
-      id: 25,
-      image: images.aviation,
-    },
-    {
-      state: "Justice/A.G of the Federation",
-      gov: "Abubakar Malami",
-      id: 26,
-      image: images.justice,
-    },
-    {
-      state: "State, Federal Capital Territory (FCT)",
-      gov: "Ramatu Tijjani",
-      id: 27,
-      image: images.state_fct,
-    },
-    {
-      state: "Information and Culture",
-      gov: "Lai Mohammed",
-      id: 28,
-      image: images.information,
-    },
-    {
-      state: "State, Transportion",
-      gov: "Gbemisola Saraki",
-      id: 29,
-      image: images.state_transportation,
-    },
-    {
-      state: "Works and Housing",
-      gov: "Babatunde Fashola",
-      id: 30,
-      image: images.works,
-    },
-    {
-      state: "State for Health",
-      gov: "Adeleke Mamora",
-      id: 31,
-      image: images.state_health,
-    },
-    {
-      state: "State, Science and Technology",
-      gov: "Mohammed H. A.",
-      id: 32,
-      image: images.state_science,
-    },
-    {
-      state: "State, Foreign Affairs",
-      gov: "Zubair Dada",
-      id: 33,
-      image: images.state_foreign,
-    },
-    {
-      state: "Mines and Steel Development",
-      gov: "Olamilekan Adegbite",
-      id: 34,
-      image: images.mines,
-    },
-    {
-      state: "State, Labour and Employment",
-      gov: "Tayo Alasoadura",
-      id: 35,
-      image: images.state_labour,
-    },
-    {
-      state: "Interior",
-      gov: "Rauf Aregbesola",
-      id: 36,
-      image: images.interior,
-    },
-    {
-      state: "Youth and Sports",
-      gov: " Sunday Dare",
-      id: 37,
-      image: images.youth,
-    },
-    {
-      state: "Women Affairs",
-      gov: "Paulen Tallen",
-      id: 37,
-      image: images.women,
-    },
-    {
-      state: "Transportation",
-      gov: "Rotimi Amaechi",
-      id: 37,
-      image: images.transport,
-    },
-    {
-      state: "Police Affairs",
-      gov: "Maigari Dingyadi",
-      id: 37,
-      image: images.police,
-    },
-    {
-      state: "Power",
-      gov: " Sale Mamman",
-      id: 37,
-      image: images.power,
-    },
-    {
-      state: "State, Works and Housing",
-      gov: "Abubakar D. Aliyu",
-      id: 37,
-      image: images.state_works,
-    },
-    {
-      state: "Humanitarian Affairs, Disaster Management",
-      gov: " Sadiya Umar Faruk",
-      id: 37,
-      image: images.humaniterian,
-    },
-    {
-      state: "State Mines and Steel",
-      gov: " Dr. Ikechukwu Ogah",
-      id: 37,
-      image: images.state_mines,
+      image:serviceimage.fourteen,
     },
   ];
 
@@ -423,11 +249,7 @@ function Govs() {
               component="a"
               href="/category/1"
               label="Category"
-            />
-            <StyledBreadcrumb
-              label="Ministers"
-              deleteIcon={<ExpandMoreIcon />}
-            />
+            /> 
           </Breadcrumbs>
         </div>
         <div
@@ -435,7 +257,7 @@ function Govs() {
             color: "rgb(24, 138, 76)",
           }}
         >
-          <h2> Which Minister do you think deserves the Legacy Award?</h2>
+          <h2>This is based on the level of professionalism and service delivered to the people by certain agencies of government.</h2>
         </div>
         <br />
         <br />
@@ -468,7 +290,7 @@ function Govs() {
         )}
 
         <>
-          {allStates.map((e) => {
+          {allagency.map((e) => {
             let id = e.id;
             // let vote = vote_count.filter((e) => e.voted == id).length
             let vote = "";
@@ -482,7 +304,7 @@ function Govs() {
             return (
               <>
                 <Link
-                  to={`/vote/ministers/${id}`}
+                  to={`/vote/service/${id}`}
                   style={{ textDecoration: "none", textAlign: "center" }}
                 >
                   <Card style={{ display: "inline-block" }} className="card">
@@ -496,9 +318,9 @@ function Govs() {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h" component="div">
-                        {e.gov}
+                        {e.state}
                       </Typography>
-                      <small>Minister of {e.state}</small>
+                      {/* <small>{e.gov}</small> */}
                     </CardContent>
                     <CardActions>
                       {loading === true ? (

@@ -12,6 +12,18 @@ const images = {
   test2: require("./tve.png"),
   test3: require("./inikkio.png"),
   test4: require("./nta.png"),
+
+
+
+  test5: require("./kabido.jpg"),
+  test6: require("./livetv.jpeg"),
+  test7: require("./invicta.jpeg"),
+
+
+
+  //
+
+  
   democracy: require("./democracy.jpeg"),
   service: require("./service.jpeg"),
   reward: require("./reward.jpeg"),

@@ -11,6 +11,7 @@ const images = {
   ten: require("./10.jpg"),
   eleven: require("./11.jpg"),
   twelve: require("./12.webp"),
+  thirteen: require("./13.jpeg"),
    
 };
 

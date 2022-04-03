@@ -17,6 +17,7 @@ const images = {
   Imo: require("./Imo.jpg"),
   Jigawa: require("./Jigawa.png"),
   Kano: require("./Kano.png"),
+  Kaduna: require("./Kaduna.jpeg"),
   Katsina: require("./Katsina.jpg"),
   Kebbi: require("./Kebbi.png"),
    Kwara: require("./Kwara.png"),
@@ -35,6 +36,7 @@ const images = {
   Taraba: require("./Taraba.png"),
   Yobe: require("./Yobe.jpg"),
   Zamfara: require("./Zamfara.png"),
+  Abuja: require("./fct.png"),
   
 };
 

@@ -17,6 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ContainedButton from "./ContainedButton";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { supabase } from "../config/index";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -70,6 +71,7 @@ function SponsorsModal() {
   const [errorAmount, setErrorAmount] = useState(null);
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorPhone, setErrorPhone] = useState(null);
+  const new_supabase = supabase();
 
   const [added, setAdded] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -84,23 +86,26 @@ function SponsorsModal() {
   };
 
   const addDetails = async () => {
-    try {
-      setLoading(true);
-      const collectionRef = collection(db, "sponsors");
-      const payload = {
-        phone_number: phone,
-        email,
-        name,
-        address,
-        amount,
-      };
-      await addDoc(collectionRef, payload);
-      setAdded(true);
-      setLoading(false);
-    } catch (err) {
-      setLoading(false);
-      alert("Error Occured. Try again.");
-    }
+    setLoading(true);
+    const payload = {
+      phone_number: phone,
+      email,
+      name,
+      address,
+      amount,
+    };
+    new_supabase
+      .from("sponsors")
+      .insert([
+        {
+          spons: payload, 
+        },
+      ])
+      .then((suc) => {
+        setAdded(true);
+        setLoading(false);
+      })
+      .catch((err) => {});
   };
 
   const validate = () => {

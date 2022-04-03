@@ -19,21 +19,21 @@ function CategoryContextProvider({ children }) {
     },
     {
       description:
-        "This is based on performance as recorded or exhibited by all past political offfice holders from 1998 - Till date",
+        "This is based on performance as recorded or exhibited by all past political office holders from 1998 - Till date",
       title: "Reward for good service award",
       picture: images.reward,
-      id: 2,
-    },
-    {
-      description:
-        "The third category is for all persons Dead or Alive who by their office, lives or influence had greatly touched lives, improved our society and enhanced the strength of our democracy.",
-      title: "Role models of democracy awards",
-      picture: images.democracy,
       id: 3,
     },
+    // {
+    //   description:
+    //     "The third category is for all persons Dead or Alive who by their office, lives or influence had greatly touched lives, improved our society and enhanced the strength of our democracy.",
+    //   title: "Role models of democracy awards",
+    //   picture: images.democracy,
+    //   id: 3,
+    // },
     {
       description:
-        "This is based on transparency, Accountability, integrity and leadership abilities of all serving political office holders in this dispensation.",
+        "This is based on the level of professionalism and service delivered to the people by certain agencies of government.",
       title: "Service to the people",
       picture: images.service,
       id: 4,

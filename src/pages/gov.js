@@ -593,7 +593,14 @@ function Govs() {
                 } else {
                   vote = vote_count.filter((e) => e.voted == id).length;
                 }
-              }
+            }
+            let port = '';
+            if (e.state == "FCT Abuja") {
+              port = "Minister of "+ e.state;
+            } else {
+              port = e.state+" state governor"
+            }
+
             return (
               <>
                 <Link
@@ -613,7 +620,7 @@ function Govs() {
                       <Typography gutterBottom variant="p" component="div">
                         {e.gov}
                       </Typography>
-                      <small>{e.state} State Governor</small>
+                      <small>{port}</small>
                     </CardContent>
                     <CardActions>
                       {loading === true ? (
